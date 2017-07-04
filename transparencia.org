@@ -1,0 +1,128 @@
+#+BLOG: blog.datalab.es
+#+CATEGORY: 
+#+TAGS: 
+#+DESCRIPTION: 
+#+AUTHOR: Adolfo Antón Bravo
+#+EMAIL: adolfo@medialab-prado.es
+#+TITLE: 
+#+DATE: [2016-12-16 mié 16:00]
+#+OPTIONS:  num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+TOC: headlines 2
+#+LATEX_HEADER: \usepackage[english]{babel}
+#+LATEX_HEADER: \addto\captionsenglish{\renewcommand{\contentsname}{{\'I}ndice}}
+#+LATEX_HEADER: \renewcommand{\contentsname}{Índice}
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:nil reveal_control:t
+#+OPTIONS: reveal_mathjax:t reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
+#+OPTIONS: reveal_width:1200 reveal_height:800
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: sky
+#+REVEAL_HLEVEL: 2
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Herramientas de Scraping de PDF y Web.">
+#+REVEAL_POSTAMBLE: <p> Creado por adolflow. </p>
+#+REVEAL_PLUGINS: (highlight notes)
+#+REVEAL_EXTRA_CSS: file:///home/flow/Documentos/software/reveal.js/css/reveal.css
+#+REVEAL_ROOT: file:///home/flow/Documentos/software/reveal.js/
+#+LATEX_HEADER: \maketitle
+#+LATEX_HEADER: \tableofcontents
+
+* Bitácora
+* Datos personales
+
+La libertad de expresión y de información es un derecho fundamental y
+reconocido.
+
+Se ha modificado lo que significa la privacidad. Ya no es la vida
+privada de un sujeto lo que está en la esfera pública, sino el derecho
+de la intimidad informacional.
+
+Tener una dirección de correo electrónico ya supone un dato
+Tener twitter y lo que hacen en redes sociales, también.
+
+A finales de los 90 una asociación de periodistas observaban que se
+estaba produciendo un cambio en la era de internet, no se producía la
+reflexión y no se pensaba en el mañana sino en el momento, lo que
+supone:
+
+- Descenso calidad media información
+- Erratas ortotipográficas
+- Producción de información inmediata
+- Aumento de información de agencias
+- Degradación del peso de lxs redactorxs.
+
+Luego, se produce la integración multimedia, se unen vídeos, audios,
+etc. Varía el formato de la información.
+
+Al gobierno Clinton se le ocurre lanzar una ley para regular el
+contenido porno y ofensivo en Internet para proteger a lxs menores.
+
+La asociación pro derechos civiles, lo considera una amenaza a la
+libertad de expresión.
+
+Un tribunal dice que en Internet un ciudadano puede tener los mismos
+derechos que el NYT:
+- No necesita licencia
+- Puedo tener mucha audiencia
+- Solo necesito un buen producto informativo.
+
+Por ejemplo, el caso Levinsky no se publicó en el NYT, sino en un
+pequeño medio
+
+Caso eldiario.es sobre dónde va la publicidad de los ministerios, lo
+han llevado con un contencioso administrativo a la Audiencia Nacional.
+
+Publicidad:
+Ya no es segmentada sino personalizada, según la analítica y las
+conversaciones.
+
+Trampas para obtener información:
+- A qué colegio fuiste.
+- Te ponen determinada información que tú variarás para que sea mejor.
+
+Ahora ya está todo en nuestro móvil, nuestro IoT.
+
+Dash button de Amazon
+
+* Derecho de información y libertad de expresión
+Nos vamos a enfrentar a datos que vienen de un determinado contexto y
+que tiene que tener ciertas garantías
+
+Sin información no se puede construir una comunidad política, es una
+precondición.
+
+Libertad de expresión vs libertad de opinión
+
+Mientras no veje a un tercero, tengo derecho a opinar lo que nos dé la
+gana.
+
+Derecho a no revelar las fuentes.
+
+
+Cláusula de conciencia
+
+Garantía de censura previa, incluso en casos de estado de excepción y
+sitio.
+
+Hasta 1890, lo que protegía la vida de las personas era la propiedad
+privada. Pero entonces en Harvard aparece el derecho a la intimidad:
+cuando la información es pública y relevante.
+
+Doctrina de las redes sociales, a los ISP: se les aplica una ley que
+viene de los EE.UU. por los que se les prohibe a vender pornografía,
+pero no solo revistas especializadas sino también a cualquier otra
+revista.
+
+En este sentido, no se responsabiliza a FB u otras personas de tener
+ese contenido: depende del usuarix; solo hasta que no es garante,
+porque le avisa la autoridad, o algún otrx usuarix de forma
+fehaciente.
+
+En cuaderns del CAC verificamos los espacios en FB de medios de
+comunicación y descubrimos que no estaban cumpliendo con informar
+sobre qué hacían con esa información.
+
+Qué significa eso:
+- FB no es la página del medio.
+

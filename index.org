@@ -1,0 +1,2697 @@
+#+LANGUAGE: es
+#+CATEGORY: manual, presentación, congreso, ponencia
+#+TAGS: commandline, línea de comandos, ls, pwd, mkdir, cd, touch, cp, mv, stdin, stdout, stderr, posix, diff, grep, egrep, find, awk, sed
+#+DESCRIPTION: Acometer un proyecto en Medialab-Prado
+#+TITLE: Introducción tecnológica al periodismo de datos
+#+DATE: <2017-07-02 dom 10:00>
+#+AUTHOR: Adolfo A. Bravo
+#+EMAIL: adolfo@medialab-prado.es
+#+OPTIONS: todo:nil pri:nil tags:nil ^:nil 
+
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:nil reveal_control:t
+#+OPTIONS: reveal_mathjax:t reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
+#+OPTIONS: reveal_width:1200 reveal_height:800
+#+OPTIONS: toc:nil
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: moon
+#+REVEAL_HLEVEL: 2
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Org-Reveal Introduction.">
+#+REVEAL_POSTAMBLE: <p> Creado por adolflow. </p>
+#+REVEAL_PLUGINS: (highlight markdown notes)
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+
+
+* Introducción
+
+** Qué es lo que tenemos
+- Solemos disponer de un ordenador. Necesitamos controlar el
+  ordenador.
+- Independientemente del sistema operativo, hemos de tener permisos de
+  superusuarix/administradorx.
+- Un entorno gráfico con aplicaciones gráficas de escritorio.
+- Cómo instalar y desinstalar programas.
+- Optimizar el rendimiento.
+- Controlar el uso del disco.
+- Sea cual sea el problema/reto, saber afrontarlo.
+- Estructura del árbol de directorios. Rutas y enlaces simbólicos
+- Manejo de versiones de programas y/o de archivos.
+
+** Fundamental
+Para ello, entre otras cosas, podríamos conocer:
+- Conocimiento de la arquitectura hardware del ordenador.
+- Conocimiento de la estructura del sistema operativo.
+- Uso de la terminal, consola Unix.
+- Manejar la estructura de ficheros.
+- Distinguir entre rutas absolutas y relativas.
+- Nociones de las distintas codificaciones de caracteres.
+- Qué tipos de datos hay
+- Qué tipos de formatos de datos hay.
+- Usuarios y grupos
+
+** Opcional
+
+Aunque es opcional, nos va a dar mucha ventaja en el día a día:
+
+- Atajos de teclado.
+- Conocer la Web: navegador,  HTML, programas, utilidades,
+  atajos, buscadores.
+- Git
+- Nociones de tratamiento de datos: investigación, recolección,
+  curación, limpieza, visualización, análisis, etc.
+
+* Periodismo de datos
+** Antecedentes del periodismo de datos
+  :PROPERTIES:
+  :ID:       deef9d7c-0eee-4d53-83b7-46ca2629ed42
+  :END:
+
+- Philip Meyer
+- Adrian Holovaty
+- Aron Pilhofer
+- Simon Rogers
+
+#+BEGIN_NOTES
+- Philip Meyer: revueltas de Detroit
+- Adrian Holovaty, creador de Django, escrito en Python. Vino a la
+  primera edición de Visualizar
+- Aron Pilhofer, vino al taller de periodismo de datos
+  de 2013. Creador de Hacks&Hackers y DocumentCloud.
+- Hacks & Hackers, explicación de la máquina de escribir.
+- Simon Rogers, importantísimo papel al mezclar claramente datos
+  abiertos con periodismo de datos, periodismo de datos abiertos
+#+END_NOTES
+
+** Cronología Periodismo Datos
+http://interactivetimeline.com/1413/datajournalism/
+https://www.youtube.com/watch?v=ItPTs48qcek
+
+http://www.theguardian.com/news/datablog/2012/may/11/data-journalism-book
+http://interactivetimeline.com/1413/datajournalism/
+
+ Every data journalism book since 1970: interactive timeline
+Dutch investigative reporter Henk van Ess has created this guide to data journalism in books, from 1970 to 2012. It shows how the field has changed, from 'precision reporting' to 'computer assisted reporting' to 'data journalism'. Oh and it includes our book, Facts are Sacred: the power of data (on Kindle) and the latest Data Journalism Handbook. Who is it missing?
+Who made the graphic? Henk Van Ess
+Where can I find it? Interactive Timeline and YouTube 
+
+** Sociedad de la Información
+  :PROPERTIES:
+  :ID:       1842f1ca-2d51-4408-bcff-f4e0521812fe
+  :PUBDATE:  <2017-06-26 lun 12:48>
+  :END:
+Vivimos en la sociedad de la información desde los años 1960
+- Sociedad industrial -->
+- Sociedad de la información -->
+- Sociedad del consumo -->
+- Sociedad del entretenimiento -->
+- Sociedad del conocimiento...
+
+** Precedentes de la sociedad de la información
+   :PROPERTIES:
+   :ID:       ecb41162-761f-4c88-bf5b-3712601d9347
+   :END:
+- Telares de Jacquard
+- Máquina de vapor de Watts
+- Programación de Ada Lovelace
+- Cambio acelerado durante y tras la II Guerra Mundial a nivel
+  hardware y software.
+- Teoría matemática de la información de Shannon y Weaver,
+  apoyada en Markov, Tukey, Von Neumann, Turing, Wiener...
+- Vinieron la cibernética, Internet, Web
+
+
+** Philip Meyer
+  :PROPERTIES:
+  :reveal_background: https://upload.wikimedia.org/wikipedia/commons/5/50/Philip_meyer.jpg
+  :ID:       678b9009-4d37-4bbe-bfec-d5cd081bc969
+  :PUBDATE:  <2017-06-26 lun 12:48>
+  :END:
+*** Resumen
+- El periodismo de precisión lo desarrolló el periodista Philip Meyer
+  en los años 1960’.
+- Se define por el uso de las matemáticas y otros métodos de las
+  ciencias sociales para interpretar los datos.
+- Famoso fue su estudio de las causas de las revueltas de Detroit
+  en 1967.
+- 40 muertos, 467 heridos, 7.200 arrestos y 2.000 casas destruidas: la
+  revuelta con más víctimas mortales en la historia de los EE.UU.
+- Meyer obtuvo el Pulitzer y de su experiencia publicó en 1973 el
+  libro /Precision Journalism: A Reporter’s Introduction to Social
+  Science Method/
+- Traducido al español como /Periodismo de precisión. Nuevas fronteras para la investigación periodística/. 
+
+*** The Miami Herald
+   :PROPERTIES:
+   :ID:       52e49b60-74c4-4b8e-985d-d02b0ba73e54
+   :END:
+#+attr_html: :width 300
+https://upload.wikimedia.org/wikipedia/commons/5/50/Philip_meyer.jpg
+
+En The Miami Herald (1958-62): precedente del *periodismo de datos*:
+
+1. Queja ciudadana por el alto coste de los seguros escolares contra incendios y huracanes.
+2. Ese coste lo establecía un /consejo de funcionarios públicos/.
+4. Cruza los nombres del /consejo/ con nombres de responsables de empresas...
+6. Eureka: el *65%* de la financiación de las campañas electorales procedían
+   de empresarios de seguros.
+
+*** Ciencias sociales
+    :PROPERTIES:
+    :reveal_background: http://computer-history.info/Page4.dir/pages/IBM.7090.dir/images/ibm.7090.jpg
+    :ID:       208b4b23-7548-4ccb-8830-7b161673bfe5
+    :END:
+
+*** Aplicaciones informáticas
+    :PROPERTIES:
+    :ID:       8cdec1d8-f457-43f3-8046-18f62947424a
+    :END:
+#+attr_html: :width 300
+http://computer-history.info/Page4.dir/pages/IBM.7090.dir/images/ibm.7090.jpg
+
+ - En Harvard Computation Center (1966) utiliza un IBM 7090.
+ - Busca predecir los resultados electorales de Ohio sin éxito.
+ - Durante su beca en Nieman estudia métodos de investigación de las ciencias sociales para aplicarlos al periodismo.
+ - Cada estudiante disponía de 120 segundos para utilizar el ordenador.
+ - Lo emplea con datos tabulados sobre /Harvard Data-Text/, el predecesor de /SPSS/ (/Statistical Package for the Social Sciences/).
+ - Intercambia minutos de uso del IBM por artículos para Nieman.
+*** Detroit Riots
+    :PROPERTIES:
+    :reveal_background: http://www.home.isr.umich.edu/wp-content/uploads/2011/04/freepress_article.png
+    :ID:       fa49f922-840e-49df-8475-0bdd880e0270
+    :END:
+1967, largo y cálido verano
+
+*** Investigación: Detroit Riot 1967
+   :PROPERTIES:
+   :ID:       880145d5-6f02-4a11-84ba-e0c6d6955fe9
+   :END:
+#+attr_html: :width 200
+http://www.home.isr.umich.edu/wp-content/uploads/2011/04/freepress_article.png
+- En la mañana del 23 de julio de 1967 la policía de Detroit hace una
+  redada en un after-hours donde más de 80 afroamericanxs celebraban
+  la vuelta de dos veteranxs de Vietnam.
+- La reacción es el comienzo de una revuelta que tras una semana de
+  incidentes se cobra 43 personas fallecidas.
+- Otras 467 heridas, 7200 arrestos y más de 2000 edificios destruidos.
+- Se propone realizar, además de las *historias periodísticas clásicas*, una *encuesta* que busque las ausas de la revuelta.
+- La Universidad de California había realizado un informe sobre las revueltas en Watts 1965. Les llevó dos años.
+
+*** Encuesta
+   :PROPERTIES:
+   :ID:       bc6f7596-181e-40b2-879c-a2d218f1e2de
+   :END:
+#+attr_html: :width 300
+file:/home/flow/ownCloud/proyectos/curso-verano-ucm-2017/img/police-brutality.png
+
+- Meyer se propone seguir el mismo método que la /UCLA/
+- Reducir el tiempo a hacerlo en tan [[https://s3.amazonaws.com/s3.documentcloud.org/documents/2070181/detroit1967.pdf][solo tres semanas]].
+- Equipo:
+ - Apoyo de Universidad del Estado de Wayne (Detroit) y sociólogx y expertxs
+   de encuestas de la Universidad de Michigan.
+ - Dos psicólogxs: Nathan Caplan y John Robinson (psicóloga e
+   investigador del /Institute for Social Research/ /ISR/)
+ - Judith Goldberg como programadora informática para la tabulación cruzada.
+ - 50 entrevistadorxs afroamericanxs, la mayoría profesorxs, para 437 residentes afroamericanxs.
+ - Programa /Filter Tau/ sobre un /IBM 360/40/
+
+*** IBM 360/40
+    :PROPERTIES:
+    :reveal_background: https://upload.wikimedia.org/wikipedia/commons/8/8d/Bundesarchiv_B_145_Bild-F038812-0014,_Wolfsburg,_VW_Autowerk.jpg
+    :ID:       8d599e35-42e4-4532-b468-c49784978fde
+    :END:
+
+*** Conclusiones
+- No hubo correlación entre status económico y participación.
+- Tampoco entre nivel educativo.
+- Ni siquiera hubo más participantes entre lxs recientes habitantes
+  llegados de los estados del sur.
+- Al contrario, la participación de lxs locales fue tres veces
+  superior.
+- Las causas principales señaladas fueron brutalidad policial,
+  sobrepoblación, malas condiciones de habitabilidad y falta de
+  trabajo.
+- Las personas que se manifestaron no representaban a toda la
+  población.
+
+*** Periodismo de precisión
+   :PROPERTIES:
+   :ID:       39061267-a2f6-4932-8da7-938bf8baf1b2
+   :END:
+ #+attr_html: :width 300
+ https://upload.wikimedia.org/wikipedia/commons/8/8d/Bundesarchiv_B_145_Bild-F038812-0014,_Wolfsburg,_VW_Autowerk.jpg
+- Un mes después del inicio de la revuelta, el domingo 20 de agosto,
+  se publicó el informe.
+- El uso de métodos de análisis de las ciencias sociales unido a software estadístico y ordenadores para construir una historia periodística lo definen como *periodismo de precisión* (1969).
+- Desmontan la teoría /Riff-Raff/ (revuelta para el avance) y la
+  /Assimilation/ (migraciones)
+- La teoría que triunfa es la de las aspiraciones cortadas: ver cómo los demás progresan mientras tú te estancas causa frustración.
+- Su trabajo se traduce en un libro fundamental: /Precision
+  Journalism: A Reporter's Introduction to Social Science Methods/
+  (1973)
+*** Caplan y el ISR
+- Caplan había visto la revuelta en directo, en concreto se acercó a las calle 12 el segundo día de las revueltas.
+- Trabajaba en Ann Arbor en el ISR de la Universidad de Michigan.
+- Volvió convencida de que había que estudiarlo para abordarlo
+  correctamente, y se preguntaba por alguna forma de conseguir
+  información en tiempo real de la realidad socio-económica de la
+  zona.
+- Lanzó una propuesta al National Institute of Mental Health (/NIMH/)
+  pero se encontró con Meyer.
+- Allí reclutó a John Robinson, investigador del ISR.
+
+*** Y más allá
+- Después de su publicación, Caplan y Jeffrey Page consiguieron fondos para utilizar el
+  mismo método de análisis para otras ciudades: Newark y New Jersey.
+- El NIMH obtuvo fondos de la National Advisory Commission on Civil
+  Disorders, creada una semana después del comienzo de las revueltas
+  de Detroit por el presidente Lyndon B. Johnson.
+- Su trabajo se convirtió en parte del informe de la comisión en 1968:
+  se hacían ampliaas recomendaciones para corregir las desigualdades
+  entre las etnias y abría oportunidades para la participación de lxs
+  afroamericanxs.
+
+*** Computer Assisted Reporting...
+    :PROPERTIES:
+    :ID:       51097fbe-0556-4b08-8eb3-1d549412ef32
+    :END:
+  - La sociedad de la información produce abundancia de información.
+  - Lo que a su vez origina un problema de atención.
+  - Se sacrifica todo en pro de la atención, incluso la verdad.
+  - Nota: cuando decía atención, entendamos ahora /analytics/
+  - CAR ha promovido un alto estándar de noticias que cuentan la verdad
+  - Aplicaciones informáticas: manejar grandes cantidades de información con herramientas analíticas más potentes.
+  - El ordenador ayuda pero el ordenador no es el objetivo ni define lo que es el periodismo.
+  - Situamos al periodismo a nivel de la ciencia y del arte.
+
+*** ...is dead
+    :PROPERTIES:
+    :ID:       68530554-d323-4da3-8fac-1aac628906a3
+    :END:
+
+ - La vía artística facilita la función del periodismo como entretenimiento.
+ - Cuando la atención es más importante que la historia, el mercado recompensa a aquellos que tienen habilidades en la creación de apariencias.
+ - Para favorecer la verdad en el periodismo, podemos practicar periodismo de precisión.
+ - Superar las ilusiones, la superstición, la percepción selectiva y las otras debilidades humanas que dificultan la adquisición de conocimientos.
+
+** Clarence Jones
+- Philip Meyer se refiere en su Precission Journalism a Clarence Jones
+  como uno de los primeros ejemplos del CAR.
+- Relaciona el Computer Assisted Reporting y el uso de las Bases de
+  datos, lo define como /pionner database maker/.
+- Lidera una investigación en 1968 en el Miami Herald sobre el sistema
+  judicial del Condado de Dade.
+*** Dade County
+- Analizó 3000 registros judiciales del Condado de Dade (Florida)
+- Contrató estudiantes derecho de la Universidad de Miami para
+  codificar/registrar la información.
+- Utilizó cuatro tarjetas perforadas de IBM para almacenar los datos
+  de cada caso.
+- Su técnica analítica fue la tabulación cruzada o /cross-tabulation/.
+- La Universidad de Michigan tenía una utilidad para el IBM 360
+  llamada Filter Tau.
+- También Harvard tenía la segunda versión de /Data-Text/.
+*** COBOL
+- Con la ayuda de Clark Lambert, jefe de sistemas del diario, utilizó
+  COBOL para analizar las tarjetas perforadas.
+- Fue el precursor del /periodismo de servicio público/.
+** Elliot Jaspin
+- A mediados de los 80, Elliot Jospin del Providence Journal adopta
+  esta metodología en una investigación sobre una presunta corrupción
+  en el gobierno local.
+- Analizo datos de 35.000 hipotecas destinadas supuestamente a rentas
+  medias y bajas de Rhode Island.
+- Toda la información almacenada en una cinta magnética reveló que los
+  hijos de los altos funcionarios del estado tenían los intereses más
+  bajos y los préstamos más grandes.
+- Destapó el desvío de gran parte de estos fondos públicos a una
+  cuenta corriente oculta.
+** Bill Dedman
+- Mayo de 1988, [[https://en.wikipedia.org/wiki/Bill_Dedman][Bill Dedman]] del /Atlanta Journal-Constitution/
+- Descubre que los bancos y cajas de Atlanta discriminan a
+  afroamericanxs.
+- Concedían más de cinco veces crédito a lxs blancxs.
+- El reportaje se llamó [[http://powerreporting.com/color/][El color del dinero]] ("The color of money").
+- Obtienen el Pulitzer de periodismo de investigación en 1988.
+** Aplicaciones informáticas
+- Intertype Company presenta en 1964 el ordenador para tareas
+  tipográficas.
+- 66 redacciones ya contaban con medios informáticos para alguna de
+  sus tareas, fundamentalmente inventarios o edición en cadena.
+** FOIA
+- Esta es la época también de tramitación de la /Freedom of
+  Information Act/ (/FOIA/).
+- Permitía que cualquier ciudadanx podía solicitar cualquier archivo o
+  resgistro del gobierno federal o del ejecutivo.
+** Resumen
+   :PROPERTIES:
+   :ID:       0671b78d-45ba-4af0-8ca8-7b2620dfb917
+   :END:
+- Periodismo
+- Investigación
+- Datos
+- Aplicaciones informáticas
+- Visualización
+** Antecedentes
+
+*** The Manchester Guardian
+  :PROPERTIES:
+  :reveal_background: file://docs/art-1821-the-manchester-guardian.png
+  :ID:       0cb1dcd6-145e-4982-9562-18804e59cba2
+  :PUBDATE:  <2017-06-26 lun 12:48>
+  :END:
+*** El estado de la educación en Manchester
+#+attr_html: :width 300 :alt el estado de la educación en Manchester
+file:///home/flow/ownCloud/proyectos/upv-periodismo-datos/docs/schools.png
+
+- Primer artículo de [[https://www.theguardian.com/news/datablog/2011/sep/26/data-journalism-guardian%0A][periodismo de datos]]
+- The Manchester Guardian (actual The Guardian), 5 de mayo de 1821
+
+
+* Visualización de datos
+  :PROPERTIES:
+  :ID:       96bbc094-adb5-4f0d-ae71-e0434eacf303
+  :PUBDATE:  <2017-06-26 lun 12:48>
+  :END:
+** John Priestley 1733-1804
+   :PROPERTIES:
+   :reveal_background: http://blogs.elpais.com/.a/6a00d8341bfb1653ef015433ee9227970c-pi
+   :END:
+
+*** A chart of biography and a achart of history
+#+attr_html: :width 300
+http://blogs.elpais.com/.a/6a00d8341bfb1653ef01543404f5f3970c-550wi
+- El inventor del aire, por ser uno de los descubridores del oxígeno.
+- A new chart of History (1769)
+- A chart of biography (1765): representa a través de líneas de
+  longitud variable las vidas de 2000 personasjes famosos clasificados
+  en:
+ - Historiadores
+ - Matemáticxs
+ - Políticos
+- Del 1.100 aC a la publicación del gráfico.
+
+** Florence Nightingale 1820-1910
+   :PROPERTIES:
+   :ID:       a1aa571f-bc52-415a-a40f-7df43863d249
+   :reveal_background: http://www.frogheart.ca/wp-content/uploads/2014/02/Rose_FlorenceNightingale1.jpeg
+   :END:
+*** Causas del fallecimiento de la guerra de Crimea
+#+attr_html: :width 300
+https://upload.wikimedia.org/wikipedia/commons/b/bb/Crimean_War%3B_Florence_Nightingale_at_Scutari_Hospital,_1856,_Wellcome_V0015400.jpg
+
+- Enfermera, escritoria y estadística
+- Considerada pionera de la enfermería moderna.
+- Creadora del primer modelo conceptual de enfermería.
+** Charles Minard 1781-1870
+   :PROPERTIES:
+   :ID:       98f68616-a545-4b61-a55c-385262c84fba
+   :END:
+
+http://www.ine.es/expo_graficos2010/imagenes/Minard_09_10_11.jpg
+
+- Ingeniero civil francés
+- Estudia ciencia y matemáticas
+
+*** Napoleón en Rusia
+    :PROPERTIES:
+    :reveal_background: https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png
+    :ID:       e897fe76-9f41-463b-88a4-777aa051149e
+    :END:
+*** Migrantes
+    :PROPERTIES:
+    :reveal_background: https://cartographia.files.wordpress.com/2008/05/minard-full.jpg
+    :ID:       12c343c4-76d8-4d3f-b712-72f45b332ba6
+    :END:
+
+*** Algodón y lana
+    :PROPERTIES:
+    :reveal_background: https://cartographia.files.wordpress.com/2008/06/cotton-and-wool-58-to-61.jpg
+    :ID:       de8c6f12-a45e-41ac-8735-b6f1693a5061
+    :END:
+*** Algodón y lana, II
+    :PROPERTIES:
+    :reveal_background: https://cartographia.files.wordpress.com/2008/06/cotton-and-wool-58-to-61-graph.jpg
+    :ID:       da8963ad-3e93-4ed9-97dc-96eb79654746
+    :END:
+*** Viva el vino
+    :PROPERTIES:
+    :reveal_background: https://cartographia.files.wordpress.com/2008/06/wine-and-spirit-tonnage.jpg
+    :ID:       b65e7ffa-f0e4-4439-915a-f02d2011d16d
+    :END:
+*** Ríos y puertos
+    :PROPERTIES:
+    :reveal_background: https://cartographia.files.wordpress.com/2008/06/port-and-river-tonnage.jpg
+    :ID:       a9c68809-9fad-41c0-a438-fb3f88a0ca34
+    :END:
+*** Exportaciones de carbón británico
+    :PROPERTIES:
+    :reveal_background: https://cartographia.files.wordpress.com/2008/06/english-coal-exports.jpg
+    :ID:       7107e464-0660-455a-b95a-f05540a58073
+    :END:
+** John Snow  1813
+    :PROPERTIES:
+    :reveal_background: https://upload.wikimedia.org/wikipedia/commons/c/c7/Snow-cholera-map.jpg
+    :ID:       c3992c45-a596-458f-8c28-633cfea3090f
+    :END:
+*** John Snow 1813-1858
+    :PROPERTIES:
+    :ID:       2e0047ce-ca7a-4669-ab8c-23c3f99743a5
+    :END:
+#+attr_html: :width 200
+https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/John_Snow.jpg/400px-John_Snow.jpg
+
+- York, 15 de marzo de 1813 – † Londres, 16 de junio
+  de 1858)
+- Médico inglés precursor de la *epidemiología*, padre de la
+  epidemiología moderna
+- Rompió con los paradigmas existentes para la época, en pleno siglo
+  XIX, en la cual aún predominaba la fuerte creencia en la teoría
+  miasmática de la enfermedad, también denominada «teoría
+  anticontagionista»
+
+*** Buscar la fuente del cólera
+    :PROPERTIES:
+    :reveal_background: https://f.hypotheses.org/wp-content/blogs.dir/253/files/2015/02/johnsnowillustration.png
+    :ID:       72511e1e-11ec-4f0d-8875-de95ae9c18d2
+    :END:
+
+*** Mapa del cólera
+    :PROPERTIES:
+    :reveal_background: http://blog.rtwilson.com/wp-content/uploads/2012/01/SnowMap_Points-1024x724.png
+    :ID:       9fda3ce5-bfe8-4c17-854a-9453a405c285
+    :END:
+** El arte funcional
+- Escribe Alberto Cairo en El País en 2012 sobre [[http://blogs.elpais.com/periodismo-con-futuro/2012/02/elegirgrafico.html%0A][elegir un gráfico]]
+- Cita a William S. Cleveland y Robert McGill por su ensayo [[http://courses.ischool.berkeley.edu/i247/f05/readings/Cleveland_GraphicalPerception_Science85.pdf][Graphical
+  perception and graphical methods for analyzing scientific data]], 1985.
+
+
+* Algunas visualizaciones
+
+** Unix
+   :PROPERTIES:
+   :reveal_background: https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Unix_history-simple.svg/1920px-Unix_history-simple.svg.png
+   :END:
+** Small multiple
+   :PROPERTIES:
+   :reveal_background: https://graphics.axios.com/2017-03-07-aca-ahca-compare/2017-03-07-aca-ahca-compare-Desktop.png
+   :END:
+*** Obamacare subsidies vs GOP refundable tax credit
+
+- Plan que sustituye a Obamacare en 2020.
+- Quiénes ganan y pierden si los subsidios de Obamacare se convierten en créditos de impuestos del GOP.
+- La [[https://www.axios.com/comparing-the-gop-tax-credit-with-obamacares-premium-subsidy-2305136456.html%0A][Fundación Familia Kaiser]] ha compilado los datos y muestra las
+  diferencias con la actualidad. 
+** Maratón de Berlín 2016
+   :PROPERTIES:
+   :reveal_background: https://interaktiv.morgenpost.de/berlin-marathon-2016/images/track2.svg
+   :END:
+*** Interactivo
+- [[https://interaktiv.morgenpost.de/berlin-marathon-2016/%0A][Trabajo del Morgen Post]]
+- Muestra el estado de cada corredor/a en el maratón.
+- Permite filtrar por hombres y mujeres.
+- También se puede filtrar por persona.
+
+** 2014: el año más cálido de la historia
+
+** Storytelling: Caperucita roja
+
+2014 Was the Hottest Year on Record
+https://www.bloomberg.com/graphics/2014-hottest-year-on-record/
+Un cuento de datos: Caperucita Roja 
+https://vimeo.com/3514904
+
+** Compendios de herramientas de visualización
+- [[http://www.datavizcatalogue.com][Data Viz Catalogue]]
+- [[https://visualisingadvocacy.org/resources/visualisationtools][Herramientas de visualización]] de [[https://visualisingadvocacy.org][Visualising Information for Advocacy]]
+- [[https://eagereyes.org/][Visualization and Visual communication]]
+- [[http://www.anychart.com/][AnyChart]], librería de JS para visualización
+ 
+* Medialab-Prado
+  :PROPERTIES:
+  :reveal_background: http://photos4.meetupstatic.com/photos/event/4/d/d/e/highres_435379934.jpeg
+  :ID:       0cb1dcd6-145e-4982-9562-18804e59cba2
+  :PUBDATE:  <2017-06-26 lun 12:48>
+  :END:
+
+** Grupo de Periodismo de Datos
+   :PROPERTIES:
+   :ID:       370197c1-3fea-4b1d-b38b-d4eef128641f
+   :END:
+- En funcionamiento desde el 20 de octubre de 2011.
+- Se inauguró tras un seminario organizado por Medialab Prado, [[https://www.access-info.org/es/][Access Info Europe]] y [[https://civio.es][Civio]].
+- José Luis de Vicente, Victoria Anderica, David Cabo, Alberto Cairo, Pepe Cervera, Antonio Delgado y Mar Cabra. 
+
+*** Actividades
+    :PROPERTIES:
+    :ID:       2116a19e-7bd0-4961-87e2-99f00cce3b1d
+    :END:
+Durante estos 5 años hemos realizado numerosas actividades:
+
+- [[http://medialab-prado.es/article/periodismo_de_datos_-_grupo_de_trabajo][Sesiones mensuales]]
+- Talleres de producción de periodismo de datos, [[https://medialab-prado.github.io/tpd17][vamos por la quinta edición]]
+- [[http://jpd16.okfn.es][Jornadas de Periodismo de Datos]], quinta edición en 2017.
+- Difusión:
+ - [[http://listas.medialab-prado.es/cgi-bin/mailman/listinfo/grupoperiodismodatos][Lista de correo]]
+ - Hashtag [[https://twitter.com/search?q=periodismodatos&src=typd][#periodismodatos]].
+ - [[http://www.meetup.com/es-ES/Madrid-Periodismo-de-datos-Meetup/][Meetup]]
+ - [[https://github.com/medialab-prado/grupo-periodismodatos][Github]]
+** Datalab: 2017
+   :PROPERTIES:
+   :ID:       f405eb80-597d-4751-81a0-33f5f8b83059
+   :END:
+#+attr_html: :width 300 :alt Logo DataLab
+
+https://pbs.twimg.com/profile_images/854615922476281856/xIJYZ5hC_400x400.jpg
+- Nuevo laboratorio en 2016 creado en la estructura de [[http://medialab-prado.es][Medialab Prado]].
+- Actividades que se desarrollaban en Medialab, ahora agrupadas.
+- Hay otros cinco laboratorios: innovación, participación, avlab,
+  comunes y ciencia ciudadana.
+
+** Comunidades de datos
+   :PROPERTIES:
+   :ID:       91393660-edcf-4c93-a158-81d6ba6c175d
+   :END:
+
+- Día del amor por el Software Libre, Día de los Datos Abierto, Día de
+  Ada Lovelace.
+- Meetup [[https://www.meetup.com/es-ES/Madrid-Periodismo-de-datos-Meetup/][Periodismo de datos]], [[https://www.meetup.com/es-ES/Madrid-Abriendo-Datos/][Madrid Abriendo Datos]], [[https://www.meetup.com/es-ES/Data-Science-Madrid/][Data Science
+  Madrid]], [[https://www.meetup.com/es-ES/Data-Science-Spain/][Data Science Spain]], [[https://www.meetup.com/es-ES/Grupo-de-Usuarios-de-R-de-Madrid/][R Madrid]], [[https://www.meetup.com/es-ES/rladies-madrid/][R Ladies Madrid]], [[https://www.meetup.com/es-ES/EmacsMadrid/][Emacs Madrid]],
+  [[https://www.meetup.com/es-ES/Haskell-MAD/][Haskell Madrid]], [[https://www.meetup.com/es-ES/Madrid-Python-Meetup/][Python Madrid]], [[https://www.meetup.com/es-ES/MAD-for-OpenStack/][Mad4OpenStack]], [[https://www.meetup.com/es-ES/Geoinquietos-MAD/][Geoinquietos-MAD]], [[https://www.meetup.com/es-ES/Madrid-D3-js/][Madrid D3.js]]
+- Grupos de investigación de universidades, empresas, [[https://mobilitylabs.emt.es/portal][MobilityLabs EMT]]
+- [[http://medialab-prado.es/visualizar][Visualizar'17]]
+- [[http://s.coop/datamad][Concurso de datos abiertos del Ayuntamiento de Madrid]].
+
+
+* Periodismo de datos hoy
+  :PROPERTIES:
+  :ID:       101eb501-df10-40eb-b498-309becb7603e
+  :PUBDATE:  <2017-06-26 lun 12:48>
+  :END:
+#+attr_html: :width 600
+http://m.cdn.blog.hu/me/media20/image/roles_in_the_newsroom.jpg
+- Periodista con competencias informáticas
+- Desarrollador de aplicaciones de noticias
+- Especialista en visualización de datos
+
+** Término periodista de datos
+   :PROPERTIES:
+   :ID:       89bdcd8d-55f4-4dc1-95b6-581159776b0c
+   :END:
+
+- Periodista de Datos Abiertos, de la Web: comienza a utilizarse a
+  partir de 2011
+- Distintas competencias y aptitudes.
+- /Data Journalist/, periodista de datos, el término más utilizado en la actualidad.
+- /Computer-assisted reporter/, reportero asistido por ordenador, del original norteamericano previo a Philip Meyer pero consolidado con su /precission journalism/ o periodismo de precisión.
+- /Newsroom developer/ o desarrollador de redacción.
+- /Journo-geek/ o periodista geek, en inglés el juego de palabras funciona mejor.
+
+*** Pero no solo
+    :PROPERTIES:
+    :ID:       cafd2735-151d-4c8a-a1f0-347e971b09eb
+    :END:
+Y se añaden algunos más:
+
+- /Journo-coder/, una especie de /perio-programador/
+- /Programmer-journalist/: programador-periodista.
+- /Hacker-journalist/: hacker-periodista
+- /Journo-programmer/: /perio-programador/
+** Chicago Crime, 2005
+- Creado por Adrian Holovaty en 2005.
+- Fundador de Django, mentor de Visualizar'07 y uno de los firmantes
+  del manifiesto por los datos abiertos en 2008.
+- Consistía en un mapa de los crímenes de la ciudad de Chicago.
+- Luego vinieron New York y San Francisco.
+- Accesible a todo el mundo.
+- Hackearon [[https://googleblog.blogspot.com.es/2005/06/world-is-your-javascript-enabled_29.html][el JS de Google para incrustar el mapa]].
+- En 2007 la Knight Foundation dona un millón de dólares para
+  [[http://everyblock.com/][EveryBlock]], para llevar a la información de cada manzana de cada
+  ciudad.
+
+** PolitiFact, 2007
+- Creado por el periódico /St. Petesburg Times/.
+- Un sitio web para comprobar la información que había dicho cada
+  político.
+- Recibe el premio Pulitzer.
+
+** England Riots
+- The Guardian se inspiró en /Detroit Riots/ para investigar las
+  revueltas juveniles de Inglaterra en 2011.
+- El germen fue el asesinato de un joven de 29 años por parte de la
+  Policía.
+- 450 detenidos en Londres en 3 días.
+- https://www.youtube.com/watch?v=_qktOvVNXwc
+- No estaba de acuerdo el Darcus Howe, periodista y activista
+  anglocaribeño, fallecido en abril de 2017, que hablaba claramente de
+  insurrección y de políticas racistas y clasistas sufridas por la
+  población durante años.
+
+** Proceso
+   :PROPERTIES:
+   :reveal_background: https://upload.wikimedia.org/wikipedia/commons/4/48/Data_driven_journalism_process.jpg
+   :ID:       b5630b0f-cdd6-49b8-b917-84a74b421a55
+   :END:
+*** Las 3 dimensiones
+    :PROPERTIES:
+    :reveal_background: http://knightlab.northwestern.edu/wp-content/uploads/2013/06/venn-3-dimensions-of-data-journalism.png
+    :ID:       6bab9c01-928f-4637-8c1c-d327b87beab9
+    :END:
+
+*** The Hacker Journalist
+    :PROPERTIES:
+    :reveal_background: http://www.knightfoundation.org/media/uploads/media_images/Screen_shot_2011-06-22_at_8.51.41_AM.png
+    :ID:       df175a8d-e63d-450e-bfcb-d0703d93ba9e
+    :END:
+*** Infografía
+    :PROPERTIES:
+    :reveal_background: http://cdn1.mumbrella.com.au/uploads/2013/02/Screen-Shot-2013-02-18-at-9.08.02-AM.png
+    :ID:       2036a149-4a56-424e-b421-ffa4396ef404
+    :END:
+
+* Ejemplos
+
+  :PROPERTIES:
+  :reveal_background: http://mediashift.org/wp-content/uploads/sites/8/2014/06/data-journalism_AnnaSchiller.jpg
+  :END:
+
+** Internacional
+   :PROPERTIES:
+   :ID:       b29d733c-9a9a-4a0f-8019-14eb5cafd86c
+   :END:
+*** ICIJ
+    :PROPERTIES:
+    :ID:       8a815342-1556-4745-80b1-0552834818f9
+    :reveal_background: https://panamapapers.icij.org/assets/articles/home_140402.jpg
+    :END:
+
+*** The Guardian
+
+- [[https://www.theguardian.com/uk/2011/sep/05/detroit-riots-1967-lessons-uk%0A][Reading the Riot]]
+- [[https://www.theguardian.com/news/datablog+technology/data-visualisation][Data Blog + Data Visualizations]]
+- [[https://www.theguardian.com/data][Data]]
+- [[https://www.theguardian.com/australia-news/datablog/ng-interactive/2017/jun/27/census-stories-how-has-your-town-or-suburb-changed-over-10-years][Census Stories]]
+- [[http://www.guardian.co.uk/data][Data Store]]
+- [[http://www.guardian.co.uk/world-government-data][World Government Data]]
+- [[http://www.guardian.co.uk/global-development/interactive/2012/oct/04/rise-of-megacities-interactive][The Rise of Megacities]]
+
+*** Amsterdam
+
+http://maps.amsterdam.nl/agenda_groen/?LANG=en
+
+** España
+   :PROPERTIES:
+   :ID:       9bc57dd1-b460-49b2-8cad-1355f5285fb9
+   :END:
+#+attr_html: :width 500px
+
+- [[http://www.elconfidencial.com/tags/otros/periodismo-de-datos-9977/][ElConfidencial.com]]: Daniele Grasso, Jesús Escudero, Adrián Blanco,
+  María Zuil, etc.
+- [[http://www.elmundo.es/periodismo-de-datos.html][El Mundo Data]]: Paula Guisado, Marta Ley, Hugo Garrido, Pablo Medina.
+- [[http://www.eldiario.es/temas/periodismo_de_datos/][Eldiario.es]]: Belén Picazo, Raúl Sánchez, Raúl González
+- La Sexta: Verónica Ramírez, Ignacio Calle ([[http://www.lasexta.com/noticias/papeles-panama/][informativos]]), Natalia Hernández e
+  Inés Calderón ([[http://www.lasexta.com/programas/el-objetivo/][El Objetivo]])
+- [[https://www.weblogssl.com/antonio-delgado-y-raquel-de-aymerich-se-unen-al-equipo-de-weblogs/][Weblogssl]]: Antonio Delgado
+- Nació Digital: Karma Peiró
+- Lavanguardia.com: Laura Aragó.
+- Diari de Girona: Ignacio García.
+- El Independiente: Luis Sevillano
+- Vocento: Javier Barriocanal.
+- RTVE.es: Miriam Hernández
+
+*** Y más
+- [[http://www.civio.es][Civio]]: el indultómetro, España en llamas, el BOE nuestro de cada
+  día, quién paga la obra, Medicamentalia, etc.
+- [[https://populate.tools][Populate Tools]]: Panama Papers
+
+* Periodismo de datos hoy
+** Términos para investigar
+   :PROPERTIES:
+   :ID:       574271f5-2688-457a-ae53-3b2173c8916e
+   :END:
+
+- Teoría de redes
+- Internet como espacio virtual de la comunicación
+- Relaciones horizontales, descentralizadas, dinámicas y circulares
+- Cibernética de segundo grado, sistemas inteligentes
+- Ciudades abiertas, ciudades poderosas, /Smart cities/
+- Matemáticas, estadística, documentación y recuperación de la información, programación...
+
+** ¿Nuevos medios?
+   :PROPERTIES:
+   :ID:       7be85df9-db1f-4009-825b-d8034b37523a
+   :END:
+
+Lev Manovich en [[https://uea1arteycomunicacion.files.wordpress.com/2013/09/manovich-el-legunaje-de-los-nuevos-medios.pdf][El lenguaje de los nuevos medios]], habla de sus características:
+
+- Representación numérica: 0101
+- Modularidad: capas, procesos, estructuración...
+- Automatización: cron, bot, programación...
+- Variabilidad: datos dinámicos
+- Transcodificación: conversión, parseo, exportar...
+
+** Journo programmer
+- Dave Winer habla de /journo programmer/ o /periodista programador/.
+- La importancia de enlazar contenidos es comparable con la
+  importancia de procedimientos en los lenguajes de programación
+- Considera a la web como una máquina de prior-art, una forma de compartir conocimiento y saber hacer.
+
+#+BEGIN_QUOTE
+Imaginad que cada pieza de código que escribes tiene que volver al principio y definir lo que significa añadir dos números. Lo mismo ocurre con la escritura: no necesito escribir un artículo de Niemen Lab porque ya está escrito y lo puedo enlazar.
+#+END_QUOTE
+
+** Periodismo estructurado
+- Thomson Reuters y Reg Chua sobre [[http://structureofnews.wordpress.com/structured-journalism/][Structured Journalism]]
+- Pretende crear un flujo de datos más eficiente para extraer la
+  información útil y transformarla en contenido.
+
+** Stream
+
+Otro concepto que le gusta es el de /stream/, flujo o río de información que ha convertido la prensa, la información, en algo líquido.
+
+* Formación
+** España
+- [[https://www.uc3m.es/ss/Satellite/Postgrado/es/Detalle/Estudio_C/1371210340413/1371219633369/Master_Universitario_en_Metodos_Analiticos_para_Datos_Masivos_Big_Data][Métodos analíticos para datos masivos]]
+- [[http://www.escuelaunidadeditorial.es/formacion-presencial/masteres/master-en-periodismo-de-investigacion-datos-y-visualizacion][Master URJC]]
+- [[http://periodismodatos.villanueva.edu/][Máster Villanueva]] UCM
+- [[http://www.unir.net/marketing-comunicacion/master-periodismo-datos/549200005029/][Máster UNIR]]
+- [[http://medialab-prado.es/visualizar][Medialab-Prado]]
+- [[http://datadrivenjournalism.net/course/][Data Driven Journalism]]
+** Internacional
+- Universidad de Londres
+- [[http://knightcenter.utexas.edu/es][Knight Center for Journalism in the Americas]], Austin (Texas)
+- [[http://com.miami.edu][University of Miami School of Communication]], graduado en [[http://com.miami.edu/graduate-programs/graduate-journalism-mediamanagement][MA
+  Journalism]].
+ 
+** Cursos
+- [[http://www.irekia.euskadi.net/es/news/11627-que-periodismo-datos-curso-periodismo-datos?t=1%0A][Periodismo datos Irekia]]
+** Grupos de investigación
+- [[http://klingon.uc3m.es/%0A][Tecnodoc, UC3M]]
+** Recursos
+- [[http://www.mandalka.name/investigative_journalism/][Markus Mandalka]] 
+- [[https://projects.propublica.org/graphics/data-institute-2016][ProPublica Open Data Institute 2016]]
+- [[http://tcij.org/][Center for Investigative Journalism]]
+- [[http://gijn.org/][Global Investigative Journalism Network]]
+- The Bureay of Investigative Journalism (TBIJ)
+- [[https://reportingproject.net/occrp/][Organized Crime and Corruption Reporting Project]]
+- [[http://farm9.staticflickr.com/8345/8181962079_fb84de9333_o.jpg][Data Journalist Sheet]]
+
+** Congresos
+- Jornadas de Periodismo de Datos
+- Congreso de Periodismo y Web Semántica
+- Congreso Internacional de Málaga.
+- Congreso de Periodismo de Peruggia.
+- Dataharvest
+- GEN
+- NICAR
+* Herramientas
+
+** RAW
+- Creada por [[http://www.densitydesign.org][DensityDesign]] del Politécnico de Milán.
+- Es un laboratorio de investigación
+** IBM
+- Agrupadas en [[https://www.ibm.com/analytics/us/en/][Analytics]]
+- SPSS
+- Db2
+- Watson
+- Cognos
+- [[http://detective.io][Detective.io]], herramienta de visualización. Desarrollada en Estanbul
+  [[http://vis.occrp.org/][Visualization.]]- [[http://graphcommons.com/][GraphCommons]]
+
+* Ejemplos
+- [[http://www.themigrantsfiles.com/][The Migrants' Files]]
+- [[http://www.theinvestigativefund.org/investigations/envirohealth/1448/drugs_in_the_system/][Drugs in the System]], documental de Mar Cabra y Sarah Fiztpatrick
+  para The Investigative Fund, un proyecto de The Nation Institute.
+- [[http://www.icij.org/blog/2012/10/reporting-danger-zones][Reporting from danger zones]], artículo de ICIJ
+- [[http://storyhunter.tv/][Story Hunter]], vídeo periodismo.
+- [[http://www.knightfoundation.org/what-we-fund/innovating-media][Journalism & Media Innovation]], de Knight Foundation
+- [[http://www.tcij.org/][The Centre for Investigative Journalism]]
+- [[http://www.fixmystreet.com/][Web Fix My Street]], informa, mira o discute problemas de urbanismo,
+  una iniciativa de [[http://www.mysociety.org][mySociety]]
+- Visualización de datos electorales, como [[http://cilekagaci.com/][Çilek Aĝaci]]
+- [[http://oxpeckers.org/][Oxpeckers]], periodismo de investigación ambiental en África.
+
+* Iniciativas relacionadas
+- [[http://www.access-info.org/][Acces Info]]
+- [[http://www.asktheeu.org/][Pregúntale a la UE]], iniciativa de Access Info para preguntar a las autoridades de la Unión Europea.
+- [[http://patents.stackexchange.com][Ask Patents]] pretende seguir el proceso de realización de una patente
+  en EE.UU.
+- [[http://www.ayudaaldesarrollo.es/][Ayuda al desarrollo]] de 2007-2012
+- [[http://companies.defenceindex.org/][Defence Index]], sobre la transparencia, la corrupción y ls buenas
+  prácticas en las empresas armamentísticas.
+- [[http://www.globalintegrity.org][Global Integrity]], técnicas *open source* para asegurar la
+  transparencia de los gobiernos.
+- [[http://journalistsresource.org/][Journalist's Resource]]
+- [[http://infoamazonia.org][InfoAmazonia]], información sobre el Amazonas.
+- [[http://www.mysociety.org][mySociety]] es una iniciativa que crea formas de conectar la sociedad a través de herramientas *open source* que permitan la integración y el desarrollo de servicios para las autoridades locales, las empresas y los gobiernos.
+- [[http://opencorporates.com/][Open Corporates]], base de datos de empresas.
+- [[http://openspending.org][OpenSpending]], cómo gastan el dinero los países.
+- [[http://poly-graph.co/][Polygraph]], proyectos de visualización de datos.
+- [[http://www.rti-rating.org/][Ranking global del Derecho a la información]], analiza la calidad de las leyes de acceso a la información de cada país. Realizado por Access Info y [[http://www.law-democracy.org/live/][Center for Law and Democracy]]
+- [[http://www.sueldospublicos.com][Sueldos Públicos]] es un proyecto de Carles Torrijos de informar de
+  los sueldos públicos en todas las administraciones del estado y de
+  informar sobre ello. Está apoyado por el [[http://www.diariosigloxxi.com][Diario Siglo XXI]] y por [[http://www.bigpress.net][Big
+  Press]]
+- [[http://www.timeshighereducation.co.uk/world-university-rankings/][The World University Rankings]], de Thomson Reuters y Elsevier.
+- [[http://www.theyworkforyou.com/][They work for you]], sobre información de los cargos políticos.
+- [[http://www.foeeurope.org/foee-well-spent-oct2012][Well Spent]], ejemplos de *buenas prácticas* de actuaciones que han contado con los *Fondos de Cohesión de la UE*, realizado por /Amigos de la Tierra Europa/.
+- [[http://www.informationisbeautifulawards.com/][Information is Beautiful Awards]], premios de visualización de datos y diseño de información.
+** Eventos
+- Jornadas de Periodismo de Datos
+- [[http://www.tcij.org/film-week][Investigative Film Festival]], 2015
+- Follow the money in Central and Eastern Europe.
+- [[http://www.tcij.org/][The Centre for Investigative Journalism]]
+- [[https://www.ire.org/nicar/][NICAR]]
+- [[https://journalists.org/conference/][Online News Association Conference]]
+- [[https://www.globaleditorsnetwork.org/gen-summit/][Global Editors Network Summit]]
+
+* Empresas
+- [[http://www.porcentual.es/][Porcentual]], portal de noticias estadísticas para incrustar en otras
+  webs.
+* Apoyos, Grants, Financiación
+Apoyo a proyectos o /grants/
+- [[http://artsdata.challengepost.com/][Challenge Post]], 
+- Code for America's Acceletar
+- [[http://www.globaleditorsnetwork.org/][Global Editors Network]], 
+- [[http://www.informationisbeautifulawards.com/][Information is Beautiful Awards]], 
+- [[http://www.ire.org/events-and-training/google-fund/][Investigative Reporters & Editors]]
+- [[http://www.internetsociety.org/what-we-do/grants-awards/community-grants][ISOC]]
+- [[http://journalismgrants.org/][Journalism Grants]],
+- [[http://www.knightfoundation.org/][Knight Foundation]] 
+- Knight Mozilla
+- [[http://maryrafteryfund.ie/][Mary Raftery Journalism Fund]]
+- [[http://www.sunlightfoundation.com/][Sunlight Foundation]] 
+- [[http://ec.europa.eu/research/participants/portal4/desktop/en/opportunities/h2020/topics/87-ict-15-2014.html][Unión Europea]], 
+- [[http://www.visualizing.org/open-challenges][Visualizing]]
+
+
+
+* Herramientas Aplicaciones
+** Blocks.org
+http://bl.ocks.org/
+This is a simple viewer for code examples hosted on GitHub Gist. Code up an example using Gist, and then point people here to view the example and the source code, live!
+
+The main source code for your example should be named index.html. You can also include a README.md using Markdown, and a thumbnail.png for preview. The index.html can use relative links to other files in your Gist; you can also use absolute links to shared files, such as D3, jQuery and Leaflet.
+** Buzzdata
+[[http://buzzdata.com/][Buzzdata]] es una red social de datos que permite almacenar y compartir bases de datos con otras personas y entidades especializadas en el mundo de la investigación y la comunicación.
+** CartoDB
+[[http://www.cartodb.com][CartoDB]] es una base de datos "en la nube" para ayudar a periodistas u ONGs a analizar y construir aplicaciones. También gastan [[https://twitter.com/cartoDB][twitter]]. Es de pago.
+** Crowdata
+Easily crowdsource the analysis of your documents
+
+
+CrowData is a tool to collaborate on the verification and release of data that otherwise would be hard or impossible to get via automatic tools like OCRs.
+
+You install it in a web server and right away can start uploading documents and have a form for people to send information about the documents.
+
+Authors and Contributions
+
+Crowdata is an open source project that was born when Manuel Aristaran was an Open News fellow at La Nacion in 2013. It was finally released as free software when Gabriela Rodriguez continued it for VozData in 2014. Thanks to Cristian Bertelegni and La Nacion for contributing to the code.
+https://crowdata.github.io/
+https://crowdata.readthedocs.org/en/latest/
+http://crowdata.stayover.org/
+
+** csvfix
+http://csvfix.byethost5.com/csvfix15/csvfix.html
+** csvkit
+https://csvkit.readthedocs.org/en/latest/
+** csv-validation-research
+https://github.com/theodi/csv-validation-research
+** D3Plus
+- URL: http://d3plus.org/
+- Código: https://github.com/alexandersimoes/d3plus
+
+** Dapper
+    Para hacer web scrapping
+
+** Datawrapper
+[[http://datawrapper.de][Datawrapper]] es una herramienta open source que ayuda a crear gráficos simples, bonitos y embebibles en cuestión de minutos, y es 100% Software Libre, por lo que puedes instalarlo en un servidor propio. Escrito en PHP.
+** Dedupe
+[[https://github.com/open-city/dedupe][Dedupe]] esA free python library for accurate and scaleable data deduplication and entity-resolution.
+
+** DocumentCloud
+DocumentCloud runs every document you upload through OpenCalais, giving you access to extensive information about the people, places and organizations mentioned in each. 
+Know more about your documents.
+eveal all the dates mentioned in a set of documents, and plot them on a timeline. Zoom in to view just the few critical months or days. Discover documents related to your story and explore links to the original reporting. 
+Highlight what matters.
+Annotate documents to highlight key passages. Use public notes to compose annotations that will be part of your published reporting, and private notes to organize your own thoughts. Every note has a unique URL, so you can point readers right to the passage you want to highlight.
+When St. Louis Public Radio published thousands of pages of grand jury testimony, forensic reports and other documents related to the death of Michael Brown in Ferguson, Mo., they served their audience by identifying passages containing key eyewitness accounts.
+Share your work.
+Everything you upload to DocumentCloud stays private until you're ready to make it public, but once you decide to publish, your documents join thousands of other primary source documents in our public catalog. Use our document viewer to embed documents on your own website and introduce your audience to the larger paper trail behind your story.
+From our catalog, reporters and the public alike can find your documents and follow links back to your reporting. DocumentCloud contains court filings, hearing transcripts, testimony, legislation, reports, memos, meeting minutes, and correspondence. See what's already in our catalog. Make your documents part of the cloud.
+If you regularly report on primary source documents,
+DocumentCloud can help you get the most out of them. 
+https://www.documentcloud.org/home
+** Geomatics
+[[http://www.gatewaygeomatics.com][Gateway Geomatics]] es una empresa de consultoría que ofrece servicios FOSS4G, Free and Open Source Software for Geospatial, Software Libre y de Código Abierto para aplicaciones geoespaciales. Se ocupa de compartir información espacial a través de estándares de publicación. Utiliza mapas de [[http://www.mapserver.org][MapServer]], un servicio de mapas web open source. TAmbién GDAL, MS4W, QuantumGIS, GRASS y PostGIS/PostgreSQL.
+
+** Gephi
+ [[https://gephi.org][Gephi]] es un programa de código abierto para la visualización y consulta de grafos. Tiene la particularidad que permite manejar grafos grandes (de miles de nodos) con muy buen rendimiento. Permite agrupar nodos del grafo, pintarlos de diferntes colores, darle tamaños proporcionales a indicadores, hacer los arcos entre nodos mas gruesos dependiendo de diversos factores, etc.
+Permite la importación de archivos en los formatos mas comunes para grafos. También se pueden utilizar archivos separados por comas, haciendo mas fácil aun la lectura de dichos grafos y el uso de bases de datos SQL.
+Se puede ver un ejemplo de la evolución de [[http://www.youtube.com/watch?v=2guKJfvq4uI][la revolución de Egipto en Twitter]]. [[http://gephi.org/tutorials/gephi-tutorial-quick_start.pdf][tutorial en PDF]], [[http://wiki.gephi.org/index.php/Datasets][Fuentes de datos]]
+
+** Google Cloud Datalab
+- URL: https://datalab.cloud.google.com/
+- Código: https://github.com/GoogleCloudPlatform/datalab
+- Beta: https://cloud.google.com/datalab/
+
+Explore, transform, analyze, and visualize your data using Google Cloud Platform.
+Connected and Integrated
+
+Cloud Datalab makes it easy to securely access all your data and public datasets, and use the power of Google BigQuery with SQL and Python to explore, visualize, analyze, and transform data.
+
+Interactive and Familiar
+
+Cloud Datalab enables working with code and data in an interactive notebook environment. Use notebooks to share and publish insights, or go further to develop, test, and deploy your data processing pipelines.
+
+** Google Fusion
+    Mapas y representaciones visuales
+** Google Refine
+    https://code.google.com/p/google-refine/
+Limpieza de datos, trabajar con formatos no amigables
+Se ha convertido en [[https://code.google.com/p/google-refine/][Open Refine]]
+** GraphCommons
+http://graphcommons.com/
+** Jigsaw
+Analítica visual para explorar y comprender conjuntos de documentos
+http://www.cc.gatech.edu/gvu/ii/jigsaw/
+** Kettle
+http://community.pentaho.com/projects/data-integration/
+Data Integration (or Kettle) delivers powerful Extraction, Transformation, and Loading (ETL) capabilities, using a groundbreaking, metadata-driven approach.
+Recursos:
+- Introduction to Pentaho Keetle http://www.slideshare.net/boulderjug/introduction-tokettledanmoore82013?qid=bba12fd4-9478-40bc-b7b7-c765eeccf9e1&v=default&b=&from_search=7
+
+
+
+** Many Eyes
+ [[http://www-958.ibm.com/software/data/cognos/manyeyes/][Many Eyes]], programa de IBM y Cognos para visualizar datos. Hay que registrarse.
+** Mapstory
+http://mapstory.org/
+MapStory is an online social cartographic platform developed by the MapStory Foundation since April 2012. Its goal is to empower the community of experts to crowd-source and peer review data within a geospatial and temporal framework. The platform is built upon the OpenGeo software stack. 
+The MapStory platform is an online cartographic application developed using the GeoNode open-source platform. GeoNode is a spatial data infrastructure solution that extends the OpenGeo Architecture with several advanced features such as participatory or collaborative mapping, advanced customization, social network capabilities and metadata catalog solutions.
+
+The Open Database License (ODbL) from Open Data Commons (ODC) is used for the underlying datasets committed to MapStory. Creative Commons licenses are then used for user representations of data (MapStories). This means that users are free to copy, distribute, transmit and adapt the site's maps and data as long as appropriate citations are being observed.
+** Morris.js
+https://morrisjs.github.io/morris.js/
+Charts
+
+** Network Workbench
+http://nwb.cns.iu.edu/
+Network Workbench: A Large-Scale Network Analysis, Modeling and Visualization Toolkit for Biomedical, Social Science and Physics Research.This project will design, evaluate, and operate a unique distributed, shared resources environment for large-scale network analysis, modeling, and visualization, named Network Workbench (NWB). The envisioned data-code-computing resources environment will provide
+
+** NodeXL
+https://www.nodexlgraphgallery.org/Pages/Default.aspx
+NodeXL is a free, open-source template for Microsoft® Excel® 2007 and 2010 that lets you enter a network edge list into a workbook, click a button, and see the network graph, all in the familiar environment of the Excel® window.
+
+With NodeXL, you can easily
+
+Customize the graph's appearance
+Zoom, scale and pan the graph
+Dynamically filter vertices and edges
+Alter the graph's layout
+Find clusters of related vertices
+Calculate graph metrics
+Import and export graphs to a variety of file formats
+Get social networks using built-in connections to Twitter, Flickr, YouTube and email
+If you use Excel® 2007 or 2010, you can download and use NodeXL now.
+
+NodeXL is brought to you by the [[http://www.smrfoundation.org/][Social Media Research Foundation]], a group of researchers dedicated to creating open tools, generating and hosting open data, and supporting open scholarship related to social media.
+** Open Refine
+http://openrefine.org/
+** Open Heat Map
+http://www.openheatmap.com/edit.html
+
+
+** Panda Project
+http://pandaproject.net/
+
+** PeopleBrowr
+[[http://www.peoplebrowsr.com/About][Realizan estadísticas]] de redes sociales y ofrecen los datos en formato CSV. La aplicación de pruebas es gratuita pero luego hay que pagar por seguir usándola.*** PhiloGL 
+ [[http://www.senchalabs.org/philogl/][PhiloGL ]]
+** PhiloGL 
+ [[http://www.senchalabs.org/philogl/][PhiloGL ]]
+**** Raw
+http://app.raw.densitydesign.org/
+Raw is an open web tool developed at the DensityDesign Research Lab (Politecnico di Milano) to create custom vector-based visualisations on top of the amazing d3.js library. The tool aims at providing a missing link between spreadsheet applications (e.g. Microsoft Excel, Apple Numbers, OpenRefine) and vector graphics editors (e.g. Adobe Illustrator, Inkscape, ...).
+
+Knowing the need of working with sensitive information, the data uploaded to Raw is processed only by the web browser: no server-side operation or storage are performed - no one will see, touch or copy your data!
+
+Raw is also highly customisable and extensible, accepting new custom layouts defined by users. 
+
+** Query Tree
+Query Tree is a drag and drop tool for working with data. As a user it is useful because you can connect a number of tools together in a chain to achieve quite complicated results, or just learn the one or two tools that you need and ignore the rest
+http://goo.gl/oWJgm
+** SciTool
+https://sci2.cns.iu.edu/user/index.php
+The Science of Science (Sci2) Tool is a modular toolset specifically designed for the study of science. It supports the temporal, geospatial, topical, and network analysis and visualization of scholarly datasets at the micro (individual), meso (local), and macro (global) levels.
+
+** ScrapperWiki
+https://scraperwiki.com/
+** Tableau Public
+ [[http://www.tableausoftware.com][Tableau Public]], programa para visualizar datos. Hay que descargarlo en Windows.
+** Tabula
+http://tabula.nerdpower.org/
+
+** Timeliner
+http://timeliner.okfnlabs.org
+Make elegant timelines and timemaps using Google Spreadsheets. Create a Spreadsheet
+We suggest you copy this template so that columns have the right names. Publish the Spreadsheet
+Publish your spreadsheet - see File menu → Publish to Web in Google Docs. Connect it to Timeliner
+Paste the spreadsheet URL (e.g. ) into the form above and hit Load.
+
+** TimeMapper
+[[http://timemapper.okfnlabs.org/][TimeMapper]], Elegant timelines and maps created in seconds
+The site is a simple node.js app with storage into s3. The timemap viz is pure JS built using KnightLabs excellent Timeline.js for the timeline and Leaflet (with OSM) for the maps. For those interested in the code it can be found here: https://github.com/okfn/timemapper/ 
+http://okfnlabs.org/blog/2013/10/11/timemapper.html
+
+** Transcribable
+During the 2012 election, ProPublica created an news application called Free the Files that crowdsourced political TV spending by asking users to transcribe certain data points from FCC filings. This Rails plugin extracts the "transcribable" bits from Free the Files so anyone can crowdsource data out of documents, as long as they're stored in DocumentCloud. This gem will handle building out the models, controllers and views you need, and it will also assign out documents and verify the data you get back.
+https://github.com/propublica/transcribable
+
+** Twitter Social Graph Network
+https://github.com/ianozsvald/twitter-social-graph-networkx
+Descarga, resume y visualiza los seguidores de Twitter usando NetworkX
+** Windows
+- Cygwin if you want a full Linux-like desktop, including a terminal, webservers and an X Windows option
+- Run a Linux (or FreeBSD / PC BSD) virtual machine with VMware, VirtualBox or even Windows Client Hyper-V. This is what I recommend
+for those who want a full Linux desktop.
+- Install a Python distribution like Anaconda, which gets you lots of nifty data science and regular expression tools along with a
+usable command line. And Python.
+- Git for Windows (http://msysgit.github.io/). This gives you Git, the MSys command line and the option to set the PATH on its command line to get an MSys sort, grep, bash, etc. in addition to the default, which is just bash and git. It may have Perl and it may have Python as well; It does not have Ruby
+** xls-split
+https://github.com/ldodds/xls-split
+
+
+** Yahoo Pipes
+http://pipes.yahoo.com/pipes/
+
+** Yed
+Editor gráfico de diagramas
+https://www.yworks.com/en/products/yfiles/yed/
+
+* Datos
+** Datos abiertos
+*** [[http://theodi.org/][The Open Data Institute]]
+Creado por Tim Berners-Lee y Nigel Shadbolt. Ofrece:
+- [[https://certificates.theodi.org/datasets][Datos]]
+- [[http://theodi.org/lunchtime-lectures][Conferencias]]
+- [[http://theodi.org/education-open-data-challenge-series][Retos]]
+ - hola
+** Datos gubernamentales
+- [[http://www.data.gov][Data.gov]], portal de datos de EE.UU. You can find Federal, state and local data, tools, and resources to conduct research, build apps, design data visualizations, and more.
+
+The Data.gov team works at the U.S. General Services Administration, but the site itself is [[https://github.com/GSA/data.gov/][open source]], and we’d love your help making it even better.
+
+- [[https://gds.blog.gov.uk/][Government Digital Service, UK]]
+** Certificaciones
+- [[https://certificates.theodi.org/][Open Data Institute]],
+** Empresas
+*** [[http://www.socrata.com/][Socrata]]
+*** [[http://www.porcentual.es/][Porcentual]]
+portal de noticias estadísticas para incrustar en otras webs.
+El periodismo de datos cada vez gana más importancia en la sociedad. Vivimos rodeados de números, cifras y porcentajes que tratan de aproximarnos a la realidad de una forma más exacta. Porcentual.es nace con la intención de poner en valor este tipo de informaciones y hacerlas más accesibles. Por eso ponemos a disposición de todos los usuarios una serie de gráficos que tratan de explicar mejor esta realidad. Medios de comunicación digitales, gabinetes de comunicación, empresas, blogueros o cualquier otro tipo de usuario podrá descargar e insertar en su espacio web nuestras informaciones y gráficos, con lo que mejorará el aspecto de sus noticias e informaciones. Además, también puede utilizar nuestra zona Premium en la que dispondrá de varias opciones para personalizar los gráficos.
+*** Column Five Media
+[[http://columnfivemedia.com/][Column Five Media]], empresa de creadores de contenido visual.
+*** Fondaki
+[[http://www.fondaki.com][Fondaki Inteligencia Pública]] es el primer servicio europeo de inteligencia pública. Utilizan tecnologías y metodologías punteras de análisis de información pública para obtener oportunidades comerciales y de innovación al servicio de pequeñas empresas, cooperativas, ONGs y cargos electos.
+
+Lo que mueve su trabajo es la convicción de que sólo una sociedad que dispone de una inteligencia real de lo que pasa fuera de sus fronteras, es capaz de valorar sensatamente riesgos y oportunidades, hacerse preguntas, plantearse retos y abrir nuevos caminos de bienestar común.
+¿Por qué Fondaki?
+Resiliencia
+
+Elaboran un [[http://fondaki.com/tag/resiliencia/][Boletín diario, Resilencia]],con enlaces enriquecidos a noticias procedentes de fuentes de todo el mundo que construye un relato geopolítico esencial para cambiar la mirada y abrir el campo de juego.
+Procesa diariamente información de millares de fuentes públicas de todo el mundo en tiempo real (noticias, boletines oficiales, blogs, informes de centros especializados, cuentas de resultados, etc.). Sus analistas multidisciplinares Utilizan herramientas punteras de análisis para localizar los elementos críticos -muchas veces invisibles. Diariamente los equipos discuten los resultados y los ordenan en función de los intereses de sus clientes.
+A partir de este trabajo se realizan análisis de redes y estratégicos. Finalmente, con toda la información ya organizada se elaboran informes de innovación tecnológica y organizativa, oportunidad comercial y tendencias legislativas que dan forma y marco a nuestros proyectos, productos y servicios para empresas e instituciones públicas.
+
+*** Dataveyes
+[[http://dataveyes.com/][Dataveyes]] es una empresa francesa de visualizaciones interactivas.
+
+** PDF Scrapping
+- https://knightcenter.utexas.edu/blog/00-13785-five-tools-extract-locked-data-pdfs
+- http://www.reporterslab.org/pdf-to-spreadsheet-update/
+- OpenOffice, http://forum.openoffice.org/en/forum/viewtopic.php?t=43632
+* Geodatos
+- [[http://learnosm.org/en/%0A][Aprende OSM]]
+- [[http://hot.openstreetmap.org/%0A][HOT Humanitarian OpenStreetMap Team]]
+
+* Visualización
+** Enlaces que hay que seguir
+- Journalists, designers, statistics, and the scientific method http://www.thefunctionalart.com/2013/01/journalists-designers-statistics-and.html
+- About the Malofiej Infographics Summit http://juanvelascoblog.com/2013/01/14/malofiej-21st-infographics-world-summit-announced/
+
+* Podcasts
+
+** Fellow the data
+Fellow the data comenzó en 20160418 para hablar sobre cómo su trabajo
+afecta en la educación, las artes, el medio ambiente, la salud pública
+y la innovación gubernamental.
+
+Nace bajo la premisa del fundador Mike Bloomberg de que si no puedes
+medirlo, no puedes manejarlo, y es lo qu ehace tan importante que
+tenga que haber estrategias guiadas por datos que estén en el core de
+su trabajo.
+
+Los podcasts comienzan con unxs invitados que compartirán sus
+experiencias y proyectos sobre el impacto de los datos.
+
+Se pueden descargar de iTunes o de SoundCloud.com/Follow-The-Data
+
+https://soundcloud.com/follow-the-data/follow-the-data-podcast-episode-1-moving-beyond-coal
+
+** Journalism News
+- Podcasts: https://soundcloud.com/journalismnews
+- URL: https://journalism.co.uk
+- Software: Soundcloud
+
+News, digital tools and tips for journalists and publishers from
+Journalism.co.uk
+
+** Datastories
+- Podcasts: https://soundcloud.com/datastories
+- URL: http://datastori.es/
+- Software: https://github.com/podlove/podlove-web-player
+- CMS: Wordpress
+
+ A podcast on data visualization with Enrico Bertini and Moritz
+  Stefaner 
+ 
+* Proyectos
+** Education Budget Tracker		    :education:budget:followthemoney:
+http://followthemoneyng.org/educationtracker.html
+** Budget Watch
+http://www.rappler.com/move-ph/issues/budget-watch
+#BudgetWatch is democracy at work: a platform for government & concerned citizens to share information and map action points for a transparent & accountable national budget.
+** Passing On
+- URL: http://passingon.natematias.com/
+- Autoría: Nathan Matias at natematias@gmail.com.
+
+Passing On is a design experiment in using data, stories, and cooperation to change women's representation online. This app, along with Open Gender Tracker and FollowBias, forms a trio of projects that expand how we measure and change women's visibility in the media.
+
+Media campaigns and civic apps usually make appeals to governments, publishers, or brands. Fix My Transport expects local government to fix the street. Drop the I Word pressures publishers to change their practices. Online, change happens differently. What we see on our Twitter feed or sites like Wikipedia is controlled by us. Not everyone has the time or experience (yet) to write Wikipedia articles, but anyone can answer a survey to start the journey.
+
+    Important note: this site is a concept prototype. It does not yet have all the needed parts to actually change Wikipedia.
+
+Although gender is more complex than the male/female binary used here, our software isn't able to estimate other genders and sexualities from article content. Gender estimates are based on the gendered pronouns found within the text of articles, similar the approach used by Reagle and Rhue in their paper on gender bias in Wikipedia. A wealth of content beyond gender binaries can be found at the Wikipedia LGBT portal.
+
+J. Nathan Matias is a grad student at the MIT Media Lab Center for Civic Media, advised by Ethan Zuckerman. Nathan collaborates on technology and communities which empower people to become more creative, effective, and informed.
+
+Sophie Diehl is an undergraduate at MIT studying electrical engineering, with an interest in data visualizations for social awareness. She started Passing On as a summer project in data visualization supervised, by J. Nathan Matias at the MIT Media Lab. Her visualization "Gender in Memoriam" is the precursor to this project.
+
+Special thanks is due to Jim Vallandingham, whose bubble cloud tutorial provided the basis for this visualisation.
+
+
+
+* TODO Enlaces que hay que seguir:
+** Journalist's Resource
+- Twitter: http://twitter.com/journoresource
+- Facebook: https://www.facebook.com/journalistsresource, Journalist's Resource - Carnegie-Knight/Harvard Shorenstein
+@journalistsresource
+
+
+* Programación
+Empeceamos
+** Lenguajes informáticos
+
+** Estructura
+#+BEGIN_EXAMPLE
+Sujeto Predicado Objeto
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+Función Variable Argumento
+#+END_EXAMPLE
+** Sintaxis de los comandos
+*** Ejecución del comando sin más
+Para ejecutar el comando sin más, por ejemplo, =ls=, escríbelo y pulsa
+=Enter= o =retorno de carro=
+
+#+BEGIN_SRC sh :output org
+ls
+
+#+END_SRC
+
+#+RESULTS:
+| black_corrupcion.csv      |
+| black-is-black_backup.csv |
+| black-is-black.csv        |
+| errores.txt               |
+| Readme.html               |
+| README.md                 |
+| Readme.org                |
+| Readme.org~               |
+| suma.txt                  |
+
+*** Comando más argumentos
+
+En el caso de =ls=, podemos decirle que nos liste un archivo concreto,
+por ejemplo:
+
+#+BEGIN_SRC sh :output org
+ls errores.txt
+
+#+END_SRC
+
+#+RESULTS:
+: errores.txt
+
+Otros comandos pueden requerir uno o más argumentos.
+
+*** Comando con opciones
+
+- Cada comando tiene múltiples opciones, y se pueden combinar.
+- Las opciones se suelen escribir con una sigla que corresponde con
+  una palabra, separado por un guión.
+- Por ejemplo, si escribimos =ls -r=, listamos el directorio en orden
+  inverso.
+
+#+BEGIN_SRC sh :output org
+ls -r
+
+#+END_SRC
+
+#+RESULTS:
+| suma.txt                  |
+| Readme.org~               |
+| Readme.org                |
+| README.md                 |
+| Readme.html               |
+| errores.txt               |
+| black-is-black.csv        |
+| black-is-black_backup.csv |
+| black_corrupcion.csv      |
+
+Nótese la diferencia con la ejecución anterior.
+
+** Tipos de datos
+- Números enteros o /integers/
+- Decimales, flotantes o /floats/
+- Cadenas -de caracteres- o /strings/
+- Booleanos: verdades o falso
+- Otros objetos
+** Algunos símbolos
+- =\n=, línea nueva
+- =\b=, backspace
+- =\r=, retorno de carro.
+- =\t=, tabulador
+- =\f=, formfeed
+- =\e=, espacio
+- =\\=, barra invertida
+- =\"=, comillas
+- =\000=, carácter octal.
+
+
+* Herramientas
+- Navegador: [[https://www.mozilla.org/es-ES/firefox/new/][Firefox]] y [[https://www.google.es/chrome/browser/desktop/index.html][Chrome]]
+- Compresor: [[http://7-zip.org][7-zip]]
+- Consola: [[https://www.cygwin.com/][Cygwin]]
+- Editor: [[https://blog.infotics.es/2015/11/11/editor-de-textos/][Emacs]], [[https://notepad-plus-plus.org/][Notepad++]], [[https://www.sublimetext.com/][Sublime]], [[https://atom.io/][Atom]]... puedes leer [[https://blog.infotics.es/2015/11/11/editor-de-textos/][cómo elegir un buen editor de textos]].
+- Git: [[https://git-scm.com/][git-scm]]
+- Github: [[https://desktop.github.com/][desktop]]
+
+
+** Configuración Cygwin
+http://stackoverflow.com/questions/1494658/how-can-i-change-my-cygwin-home-folder-after-installation
+
+Según comentan ahí, hay que añadir la variable =db_home= a
+ =/etc/nsswitch.conf= con la información =windows= para tener el
+ directorio de usuarix de Windows como =home=, es decir:
+
+#+BEGIN_EXAMPLE
+db_home: windows
+#+END_EXAMPLE
+
+O de forma equivalente:
+
+#+BEGIN_EXAMPLE
+db_home: /%H
+#+END_EXAMPLE
+
+De esta última manera puedes interpretar el esquema y hacer que estén
+dentro del subdirectorio =cygwin=, por ejemplo:
+
+#+BEGIN_EXAMPLE
+db_home: /%H/cygwin
+#+END_EXAMPLE
+
+En esta [[http://stackoverflow.com/questions/225764/safely-change-home-directory][página]] proponen otro método:
+
+#+BEGIN_SRC sh
+mkpasswd -l -p "$(cygpath -H)" > /etc/passwd
+#+END_SRC
+
+
+** Emacs
+Se puede [[https://www.gnu.org/software/emacs/download.html][descargar]] y utilizar tanto en Linux, Windows o
+Mac. Podemos descargarlo desde:
+- [[http://ftp.gnu.org/gnu/emacs][ftp de Emacs]]
+- [[https://www.gnu.org/order/ftp.html][elegir un mirror]]
+- dejar que nos sugieran el mirror [[http://ftpmirror.gnu.org/emacs/][más cercano a nuestra ubicación.]]
+
+** Markdown
+
+- [[https://github.com/flowsta/markdown][Mis apuntes de Markdown]]
+- [[http://docs.podigee.com/guides/markdown-cheatsheet.html][Markdown Cheatsheet]]
+- [[https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-spanish.pdf][R Markdown Cheatsheet: R, Markdown y YAML]]
+
+* Amianto
+https://www.youtube.com/watch?v=Ofrqm6-LCqs
+http://www.ilo.org/global/about-the-ilo/newsroom/news/WCMS_071435/lang--es/index.htm
+2 m fallecimientos al año según OIT, 30% de cáncer, 100000 muertes por amianto
+** Leyes
+En diciembre de 2001 España se adelantaba al plazo máximo previsto por la UE y prohibía la comercialización y la utilización de crisotilo (amianto blanco), el único tipo que todavía seguía siendo utilizado en España. Las variedades más perjudiciales para la salud -el amianto azul y el amianto marrón- fueron prohibidas en España en 1984 y 1993, respectivamente.
+
+La Orden Ministerial, aprobada el 7 de diciembre de 2001, establecía un plazo de seis meses para su entrada en vigor,pero introducía una prórroga de seis meses más
+
+para la comercialización de los productos ya fabricados:
+
+    15 de junio de 2002 - Entrada en vigor de la prohibición de fabricar productos que contengan amianto. Hasta el 15 de diciembre de 2002 se podían comercializar e instalar productos con amianto fabricados antes del 15 de junio de 2002.
+    15 de diciembre de 2002 - Prohibición de producir, comercializar e instalar amianto y productos que lo contengan.
+https://www.boe.es/buscar/doc.php?id=BOE-A-2001-23636
+** El amianto mata
+
+http://www.agenciasinc.es/Noticias/En-Espana-seguira-habiendo-muertes-por-amianto-hasta-el-ano-2040
+** Comunidad valenciana
+https://es.wikipedia.org/wiki/El_Tubo_(San_Vicente_del_Raspeig)
+http://www.diarioinformacion.com/alicante/2017/02/09/educacion-quitara-curso-fibrocemento-once/1858676.html
+http://fibrocimentnogracies.blogspot.com.es/
+http://www.diarioinformacion.com/alicante/2017/02/28/10-enfermedades-fallecen-alicantinos/1865632.html
+https://bmccancer.biomedcentral.com/articles/10.1186/1471-2407-14-535
+** Productos
+http://www.amianto.net/productos
+
+* Línea de comandos
+La línea de comandos es una interfaz de usuarix basada en líneas de
+comandos (/Command Line Interface/ o /CLI)/.
+
+Cuando utilizamos un ordenador, tenemos interfaces para utilizar los
+programas.
+
+** Interfaces de usuarix
+
+En la actualidad, cuando utilizamos un ordenador personal --de forma
+general--, usamos interfaces gráficas de usuarix /GUI/ (/Graphic User
+Interface/).
+
+Pero también podemos, de forma general o específica, utilizar otras
+interfaces como son:
+
+- Las referidas /CLI/
+- Las /NUI/ (/Natural User Interface/ o
+interfaz natural de usuarix), como pueden ser las pantallas
+capacitivas multitáctiles, /Kinect/ --con el movimiento-- o /Siri/
+--con el reconocimiento de lenguaje natural-- .
+
+** Historia
+Al inicio de los ordenadores, solo había líneas de comandos para
+comunicarnos con ellos.
+
+Las /GUI/ fueron desarrollados en el /Centro de Investigación de Xerox en
+Palo Alto/ (/Palo Alto Research Center/, /PARC/).
+
+Tiempo después, /Apple/ pagó para estudiar la idea, que finalmente se
+concreto en su /GUI/.
+
+El MIT desarrolla una GUI para Unix en 1986, X.
+
+El sistema XFree86 de Linux se desarrolló en 1996, una implementación
+libre del original X, al que homenajea en el nombre.
+** Ventajas de la línea de comandos
+- Ahorras tiempo
+- Te ofrecen una alternativa a las GUI.
+- Te acercan más a cómo funcionan los sistemas POSIX
+- Te preparan para la programación.
+- Aprendes otra fora de hacer las cosas.
+** Conceptos
+- Si la terminal es la interfaz más directa con el sistema operativo,
+  dado que estamos en un entorno gráfico, utilizaremos un emulador de
+  terminal.
+- Una /shell/ es un intérprete de comandos de la terminal.
+- Un comando u orden es una utilidad que ejecutas en la /shell/.
+- La salida es lo que devueve el comando, normalmente en la terminal,
+  llamada /STDOUT/ por /STandarD OUTput/ o salida estándar.
+- La entrada de datos, argumentos o comandos es lo que se conoce como
+  /STDIN/ por /STandarD INput/.
+- Un proceso es una aplicación que corre (está ejecutada, funciona) en
+  tu ordenador. Puede estar activa o durmiendo.
+
+A process is a running application on your computer. It can be active, sleeping,
+* Atajos de consola
+
+- =CTRL + L=, limpia la consola, es lo mismo que darle a =clear=
+- =CTRL + A=, ir al inicio de la línea
+- =CTRL + E=, ir al final de línea.
+- =CTRL + U=, limpia la línea.
+- =CTRL + C=, mata el proceso.
+- =CTRL + Z=, para el proceso.
+- =CTRL + D=, fin del archivo.
+
+* Explorador de archivos
+** ls
+Lista los archivos del punto en el que nos encontramos. Viene del
+inglés /list/. Si lo lanzamos sin argumentos, obtendremos un listado
+de los archivos y directorios que contiene ese directorio:
+
+#+BEGIN_SRC sh
+ls
+
+#+END_SRC
+
+=ls [opciones]= lista los archivos del punto en el que nos encontramos.
+- =-a=, lista todos los archivos.
+- =-l=, lista en formato largo
+Para emplear argumentos, utilizaremos la estructura:
+
+#+BEGIN_SRC sh
+ls -a
+
+#+END_SRC
+
+Si queremos saber la información de cada archivo y directorio, lo
+haremos con la opción =-l=:
+
+#+BEGIN_SRC sh
+ls -l
+
+#+END_SRC
+
+** pwd
+
+=pwd= es el acrónimo de /print working directory/ o /muestra por
+pantalla el directorio de trabajo actual/. Es decir, imprime la ruta
+absoluta del sistema donde nos encontramos. 
+
+#+BEGIN_SRC sh
+pwd
+#+END_SRC
+
+** mkdir
+=mkdir [opciones] [nombre-directorio]=, /make directory/, crea un directorio
+- =-p=, make parents
+
+** cd
+Sirve para cambiar de directorio. Viene de las iniciales del inglés
+/change directory/.
+
+Si escribimos solo =cd=, vamos a nuestro espacio /home/ definido en la
+variable de entorno =HOME=:
+
+#+BEGIN_SRC sh
+env |grep HOME
+
+#+END_SRC
+
+Por tanto, iremos a =/home/flow=
+
+Para cambiar de directorio, podemos elegir la ruta absoluta o la relativa.
+
+#+BEGIN_EXAMPLE
+cd [ruta]
+#+END_EXAMPLE
+
+- =cd=, vamos a la home del usuario
+- =cd .=, vamos al directorio en el que estamos.
+- =cd ..=, vamos al directorio superior
+- =cd ~=, vamos al directorio home del usuario.
+- =cd -=, vamos al directorio donde estábamos antes.
+
+Con esos atajos también podemos construir rutas, por ejemplo, con =cd
+~/Documentos= vamos al directorio Documentos del usuario con el que
+estamos.
+
+=cd [ruta]=, /change directory/, cambia al directorio elegido. Podemos escribir la ruta absoluta o bien con atajos:
+- =cd=, vamos a la home del usuario
+- =cd .=, vamos al directorio en el que estamos.
+- =cd ..=, vamos al directorio superior
+- =cd ~=, vamos al directorio home del usuario.
+Con esos atajos también podemos construir rutas, por ejemplo, con =cd ~/Documentos= vamos al directorio Documentos del usuario con el que estamos.
+** touch
+=touch [archivo]=, crea archivo vacío
+** cp
+=cp [opciones] [origen] [destino]=
+- =cp -r= copia los directorios recursivamente
+** mv
+=mv [origen] [destino]=
+* Entrada Salida I/O, control del flujo
+  
+#+CAPTION: Diagrama de funcionamiento de STDIN, STDOUT y STERR. Fuente: Wikipedia: Esquema de POSIX y C de entrada estándar. Licencia Dominio Público.
+#+ATTR_HTML: alt Diagrama de funcionamiento de STDIN, STDOUT y STERR. Fuente: Wikipedia: Esquema de POSIX y C de entrada estándar. Licencia Dominio Público
+https://upload.wikimedia.org/wikipedia/commons/7/70/Stdstreams-notitle.svg
+
+** POSIX
+
+Para saber de los procesos de entrada y salida de datos, conviene
+saber de POSIX. ¿Qué es POSIX? Es lo que hace diferente Unix de
+Windows, es lo que te complica o te facilita la vida si quieres una
+compatibilidad en las operaciones que puedes hacer a nivel de sistema
+operativo.
+
+** Qué es POSIX
+
+[[https://es.wikipedia.org/wiki/POSIX][POSIX]] es el acrónimo de /Portable Operating System Interface/
+(Interfaz de Sistema Operativo Portable), y la /X/ viene de UNIX como
+seña de identidad de la API.
+
+Como anécdota, decir que [[https://stallman.org/articles/posix.html][el nombre fue sugerido por Richard Stallman]],
+fundador del proyecto [[https://www.gnu.org/][GNU]], cuando en 1980 pertenecía al comité del
+[[https://www.ieee.org/index.html][IEEE]] (/Institute of Electrical and Electronics Engineers/, Instituto
+de Ingenierxs Electrónicxs y Eléctricxs) que desarrolló el protocolo
+finalmente conocido como /POSIX/.
+
+** Estándares
+
+Se trata de una [[https://en.wikipedia.org/wiki/POSIX][familia de estándares]] que pretenden mantener la
+compatibilidad entre sistemas operativos. /POSIX/ define la /API/, así
+como la línea de comandos y otras interfaces necesarias.
+
+** 3 archivos
+
+Cada proceso en estos entornos suele disponer de tres archivos
+abiertos al comienzo de su ejecución:
+1. La entrada
+2. La salida
+3. La salida de errores.
+
+** Descriptores de archivos
+El hecho de ser estándares es porque suelen estar asignados a
+descriptores de archivos conocidos, de manera que un programa:
+
+- Siempre tomará los datos de entrada por el descriptor cero 0.
+- Enviará los resultados por el descriptor uno 1.
+- Mostrará los errores por el descriptor dos 2.
+
+** STDIN, STDOUT, STDERR
+
+Para referirnos a ellos, se les denomina:
+1. La entrada, /STDIN/ (/STanDard INput/, entrada estándar).
+2. La salida, /STDOUT/ (/STanDard OUTput/, salida estándar).
+3. La salida de errores, /STDERR/ (/STanDard ERRor/, salida estándar
+   de errores).
+
+** La terminal
+Esta convención no tiene mucho sentido en sistemas gráficos o en
+programas que funcionan con demonios, pero alcanzan todo su potencial
+con la terminal.
+
+La terminal o emulador de terminal es el programa que nos conecta con
+la /shell/ del sistema, el intérprete de comandos del sistema operativo.
+
+** Entrada y salida de datos
+
+- La entrada de datos suele ser el teclado
+- La salida típica suele ser la pantalla
+- La salida de errores suele suplir a la salida típica, en caso de que
+  se produzcan errores en la ejecución del comando.
+
+** Modificación de los procesos
+
+Estos procesos se pueden modificar:
+- Podemos redirigir la salida a un archivo.
+- O bien dirigir la entrada a un comando.
+- O redirigir una salida a una entrada.
+
+** Redirección de =STDOUT= y =STDERR=
+Quienes trabajáis habitualmente con Github, quizás os suene cuando
+creáis un repositorio nuevo que entre las opciones para hacerlo, dice:
+
+#+BEGIN_EXAMPLE
+...or create a new repository on the command line
+
+echo "# prueba-borrar" >> README.md
+#+END_EXAMPLE
+
+Lo que aquí proponen es utilizar el comando =echo=, que como su nombre
+indica nos devuelve lo que le digamos, y dirigir la salida a un
+archivo.
+
+*** echo
+
+Si escribimos =echo hola=, la salida del comando por la salida típica,
+que es la pantalla, será =hola=:
+
+#+BEGIN_SRC sh
+echo hola
+
+#+END_SRC
+
+*** echo y STDOUT a un archivo
+
+Com proponían en Github, si le decimos a =echo= que devuelva =hola=
+pero queremos incluirlo en un archivo de nombre =README.md=, haremos:
+
+#+BEGIN_SRC sh
+echo hola > README.md
+
+#+END_SRC
+
+*** STDOUT a un archivo
+
+Como escribíamos en el ejemplo anterior, el carácter =>= redirecciona
+la salida típica o =STDOUT= al archivo =README.md=.
+
+¿Lo crea? ¿Lo destruye?
+
+- Si no existía ese archivo, efectivamente, lo crea con =hola= como
+  contenido.
+- Si existía, lo sobreescribe con =hola= como contenido.
+
+*** STDOUT a un archivo sin sobreescritura
+
+Si no queremos sobreescribirlo, porque ya existía, sino añadir
+contenido a ese archivo, en vez de =>= utilizaremos =>>=:
+
+Como ya he creado con el ejemplo anterior el archivo =README.md= con
+el contenido =hola=, ahora voy a añadir =¿qué tal=:
+
+#+BEGIN_SRC sh
+echo qué tal >> README.md
+#+END_SRC
+
+Para comprobarlo, hacemos un =more=:
+
+#+BEGIN_SRC sh
+more README.md
+
+#+END_SRC
+
+#+RESULTS:
+
+*** Atención
+
+Aunque aquí no hemos usado comillas, es recomendable introducir el
+texto entre comillas, así nos evitamos que haya palabras reservadas
+que empleemos en la frase:
+
+#+BEGIN_SRC sh
+echo "pues muy bien, gracias" >> README.md
+
+#+END_SRC
+
+Así añadiremos una tercera línea a =README.md= con ese texto.
+
+*** Repaso de STDOUT
+En [[http://www.tldp.org/LDP/abs/html/io-redirection.html][io-redirection]], hacen un buen repaso:
+
+Redirección de =STDOUT= a =archivo=, donde lo crea o lo sobreescribe:
+
+#+BEGIN_EXAMPLE
+comando 1> archivo
+#+END_EXAMPLE
+
+Redirección y añadido de =STDOUT= a =archivo=:
+#+BEGIN_EXAMPLE
+comando 1>> archivo
+#+END_EXAMPLE
+
+*** Repaso de STDERR
+
+Redirección de =STDERR= a =archivo=:
+#+BEGIN_EXAMPLE
+comando 2> archivo
+#+END_EXAMPLE
+
+Redirección de =STDERR= y se añade al final del =archivo=:
+#+BEGIN_EXAMPLE
+comando 2>> archivo
+#+END_EXAMPLE
+
+Redirección de =STDOUT= y =STDERR= a =archivo=:
+
+#+BEGIN_EXAMPLE
+comando &> archivo
+#+END_EXAMPLE
+
+** Redirección de =STDIN=
+
+En sentido contrario a =STDOUT=, podemos hacer que un comando ejecute
+un archivo ya creado:
+
+#+BEGIN_EXAMPLE
+comando < archivo
+#+END_EXAMPLE
+
+** Redirección =STDOUT= a un comando
+Para redirigir un comando con otro.: , entubar un comando con otro
+=comando1 | comando2 | comando3=
+
+* Comodines
+Los comodines permiten usar valores conocidos con valores
+comodín.
+
+Hay tres operadores:
+- =*=, para cualquier número de caracteres
+- =?=, para un carácter
+- =[x-y]=, para un rango
+
+** =*=
+
+Podemos listar todos los =csv= con el comodín =*=, ya que puede haber
+archivos con un carácter o varios.
+
+#+BEGIN_SRC sh :output org
+ls *.csv
+
+#+END_SRC
+
+#+RESULTS:
+| black_corrupcion.csv      |
+| black-is-black_backup.csv |
+| black-is-black.csv        |
+
+** =?=
+
+El comodín =?= sirve para solo un carácter, cualesquiera. Por ejemplo,
+si tuviéramos archivos que solo difieren en un carácter, podemos
+listar ambos.
+
+Imaginemos que tenemos archivos =1.pdf=, =2.pdf=, =3.pdf=,
+etc. Podríamos listarlos con el comodín =?=:
+
+#+BEGIN_EXAMPLE
+ls ?.pdf
+#+END_EXAMPLE
+
+** =[]=
+
+El comodín corchetes cuadrados o =[]= permite buscar rangos de números
+o letras.
+
+si queremos buscar en el =csv= tanto =CLESA= como =BLESA=, podemos
+escribir:
+
+#+BEGIN_SRC sh :output org
+grep [B-C]LESA black-is-black.csv | wc -l
+
+#+END_SRC
+
+#+RESULTS:
+: 1650
+
+* Procesos
+- =top=, sirve para ver qué procesos consumen más.
+- =ps [comando]= informa de los procesos de ese comando.
+ - =ps -f=, lista completa
+ - =ps -e=, muestra todos los procesos
+ - =ps aux | grep [comando]=, muestra los procesos de ese comando
+- =comando &=, corre proceso por detrás.
+- =jobs=, muestra procesos que corren por detrás
+- =kill señal numero-proceso=, manda la señal determinada a ese proceso
+- =killall comando=, mata todos los procesos de ese comando
+
+* Permisos
+- Los archivos/directorios pertenecen al usuario, del grupo y de otros
+- Las opciones de cada cual son lectura =r= /read/, escritura =w= /write/ y ejecución =x= /execute/
+- =u=, por /user/, usuario
+- =g=, por /group/, grupo
+- =o=, por /others/, otros
+- =a=, por /all/, todos
+- =chmod [opciones] [modo] [destino]=, /change mode/, cambia permisos.
+- =R=, afecta recursivamente.
+- Por ejemplo:
+#+BEGIN_SRC 
+chmod +rx
+
+#+END_SRC
+Cambia los permisos a lectura y escritura para todos.
+#+BEGIN_SRC 
+chmod g-w
+
+#+END_SRC
+Quita los permisos de escritura al grupo
+#+BEGIN_SRC 
+chmod 777
+
+#+END_SRC
+Cambia los permisos a lectura, escritura y ejecución para todxs.
+
+* Configuración de la terminal
+En la propia terminal tienes opciones de perfiles de color que puedes usar o puedes configurar algunos propios.
+** Variables de entorno
+Especifica las variables que se exportan a todos los procesos que son reproducidos por el shell.
+
+Se utiliza el comando =export= para exportar una variable:
+
+#+BEGIN_SRC sh
+export VARIABLE=value
+
+#+END_SRC
+
+Los valores de las variables de entorno se pueden visualizar con el comando =env=:
+
+#+BEGIN_SRC 
+env
+
+#+END_SRC
+
+** Aspecto de bash
+Si quieres cambiar el aspecto del bash y que no aparezca todo el chorro de carpetas en las que te encuentras y que convierte tu línea en algo difícil de utilizar, cámbialo:
+
+#+BEGIN_SRC sh
+#PS1='[\u@\h \W]\$ '  # Default
+PS1='\[\e[1;31m\][\u@\h \W]\$\[\e[0m\] '
+
+#+END_SRC
+
+Ahí elegimos, en el primer subcorchete, el color (ver la [[https://wiki.archlinux.org/index.php/Color_Bash_Prompt#List_of_colors_for_prompt_and_Bash][lista de colores completa]]), como por ejemplo =\e[1;31m=, color rojo y en negrita o =bldred=.
+
+El primer número se refiere a que sea texto normal, en cursiva, en negrita o subrayado.
+
+- 1, para que aparezca en negrita
+- 2, aparece normal
+- 3, aparece en cursiva
+- 4, para que aparezca subrayado
+
+Si queremos probarlo en la terminal, podemos utilizar el comando =echo=:
+
+#+BEGIN_SRC sh
+echo -e "${txtblu}test"
+
+#+END_SRC
+*** Cómo escapar caracteres en /prompt/
+
+Se puede ver el [[https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Prompt_escapes][listado de caracteres que escapan]].
+
+En este caso, en el segundo subcorchete definimos:
+
+- Con =\u=, que aparecerá el nombre del usuarix.
+- Con =@= que aparecerá una arroba
+- Con =\h= que aparecerá el nombre del host.
+- =\W= indica que se pondrá el directorio de trabajo relativo o /current relative path/, si no estás en =~/=. Si quisiéramos la ruta absoluta emplearíamos =\w=
+
+** Comandos y ayuda
+Los comandos tienen un nombre y opciones.
+
+Probablemente tengamos activada en la terminal la opción autocompletado, que podemos ver con estas líneas o parecidas en el archivo =.bashrc=:
+
+#+BEGIN_EXAMPLE
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+#+END_EXAMPLE
+
+Por tanto, podríamos pulsar dos veces el tabulador cuando empecemos a escribir un comando y la terminal autocompletará.
+
+Si queremos saber qué hace un comando, hay tres opciones, dos comandos
+que aportan información sobre los otros comandos y una opción de cada
+comando: =whatis=, =--help= y =man=.
+
+*** Whatis
+
+=whatis= muestra un par de líneas sobre el comando, de la información
+que aparece en el manual. Por ejemplo, si queremos saber qué hace el
+comando =wc=, haremos =whatis wc=:
+
+#+BEGIN_SRC sh
+whatis wc
+
+#+END_SRC
+
+La ayuda suele estar en inglés.
+
+*** Help
+
+Cualquier comando con la opción =--help= muestra una versión reducida del manual:
+
+#+BEGIN_SRC sh
+wc --help
+
+#+END_SRC
+
+*** Man
+
+El comando =man= con el nombre del comando del que se quiere saber
+como argumento nos abre el paginador del manual del comando,
+normalmente el comando =more=.
+
+Para avanzar en el paginador, hay que darle a la barra espaciadora y
+para salir del paginador sin llegar al final, hay que pulsar la tecla
+=q=.
+
+#+BEGIN_SRC sh
+man wc
+
+#+END_SRC
+
+** Algunas utilidades
+*** Interrumpir un comando
+Para interrrumpir el curso de un comando, se puede pulsar a la vez las
+teclas de =Ctrl= y =c=.
+#+BEGIN_EXAMPLE
+Ctrl + c
+#+END_EXAMPLE
+
+#+BEGIN_QUOTE
+Para que esto no suponga un lío, lo habitual es presionar primero la
+letra =Ctrl= y, sin soltarla, pulsar =C= una vez, luego soltar =Ctrl=.
+
+#+END_QUOTE
+*** Limpiar la línea
+Para limpiar la línea con algo que hemos escrito y podríamos borrar
+con la tecla de =Backspace=, podríamos pulsar la combinación de teclas
+=Ctrl= + =u=.
+
+#+BEGIN_EXAMPLE
+Ctrl + u
+#+END_EXAMPLE
+*** Salir de la terminal
+Se puede salir de la sesión con el comando =exit= o con la combinación
+de teclas =Ctrl= más =d=.
+
+*** Screen
+Con el comando =screen= podemos abrir una terminal virtual dentro de
+la sesión, de tal forma que podemos ejecutar comandos en segundo plan
+o, como por ejemplo un =ping=, una descarga de un fichero con =curl= o
+cualquier otra orden o conjunto de órdenes. 
+
+Para lanzarlo, escribimos =screen= y entonces pide que continuemos con
+=space= o salgamos con =return=. 
+
+Una vez que hemos continuado con =space=, podemos lanzar el comando
+que queramos tener en segundo plano, como por ejemplo, =ping=. Para
+dejarlo en segundo plano, se teclea =Ctrl= + =a= + =d=.
+
+#+BEGIN_EXAMPLE
+Ctrl + a + d
+#+END_EXAMPLE
+
+Si queremos saber los comandos que tenemos en segundo plano, se pueden ver con =screen -ls=.
+
+Si solo tenemos un screen lanzado, podremos volver con =screen -r=, pero si tenemos varios, que se mostrarán con =screen -ls=, podremos volver al que nos interese con =screen -r= más el número que nos aparece en el listado.
+
+Para cerrar la terminal virtual se utiliza también el comando =exit=.
+
+** Aliases
+Se pueden hacer alias de los comandos e incluirlos en =.bashrc=. Por ejemplo:
+
+Un alias de =ls= para que siempre que lo invoquemos haga =ls -aF --color=:
+
+#+BEGIN_SRC sh
+alias ls='ls -aF --color=always'
+
+#+END_SRC
+
+O un comando nuevo, por ejemplo =ll=, que lanza =ls -l=:
+
+#+BEGIN_SRC sh
+alias ll='ls -l'
+
+#+END_SRC
+
+Podemos renombrar un comando, como por ejemplo que =grep= sea =search=:
+
+#+BEGIN_SRC sh
+alias search=grep
+
+#+END_SRC
+
+O que al escribir =..= subamos un directorio con =cd ../=:
+
+#+BEGIN_SRC sh
+alias ..='cd ../'
+
+#+END_SRC
+* Utilidades
+** man
+Para saber sobre cualquier comando, por ejemplo sobre =mkdir=,
+utilizamos el comando =man=.
+#+BEGIN_SRC sh
+man mkdir
+#+END_SRC
+** history
+=history= muestra los comandos usados.
+ - =history -c= limpia la historia
+ - =history |grep [comando]=, muestra la historia de ese comando
+
+** time
+=time [comando]=, muestra el tiempo de ejecución del comando
+** diff
+=diff= compara archivos línea por línea.
+* Explorador de archivos
+** ls
+Lista los archivos del punto en el que nos encontramos. Viene del
+inglés /list/. Si lo lanzamos sin argumentos, obtendremos un listado
+de los archivos y directorios que contiene ese directorio:
+
+#+BEGIN_SRC sh
+ls
+
+#+END_SRC
+
+=ls [opciones]= lista los archivos del punto en el que nos encontramos.
+- =-a=, lista todos los archivos.
+- =-l=, lista en formato largo
+Para emplear argumentos, utilizaremos la estructura:
+
+#+BEGIN_SRC sh
+ls -a
+
+#+END_SRC
+
+Si queremos saber la información de cada archivo y directorio, lo
+haremos con la opción =-l=:
+
+#+BEGIN_SRC sh
+ls -l
+
+#+END_SRC
+
+** pwd
+
+=pwd= es el acrónimo de /print working directory/ o /muestra por
+pantalla el directorio de trabajo actual/. Es decir, imprime la ruta
+absoluta del sistema donde nos encontramos. 
+
+#+BEGIN_SRC sh
+pwd
+#+END_SRC
+
+** mkdir
+=mkdir [opciones] [nombre-directorio]=, /make directory/, crea un directorio
+- =-p=, make parents
+
+** cd
+Sirve para cambiar de directorio. Viene de las iniciales del inglés
+/change directory/.
+
+Si escribimos solo =cd=, vamos a nuestro espacio /home/ definido en la
+variable de entorno =HOME=:
+
+#+BEGIN_SRC sh
+env |grep HOME
+
+#+END_SRC
+
+Por tanto, iremos a =/home/flow=
+
+Para cambiar de directorio, podemos elegir la ruta absoluta o la relativa.
+
+#+BEGIN_EXAMPLE
+cd [ruta]
+#+END_EXAMPLE
+
+- =cd=, vamos a la home del usuario
+- =cd .=, vamos al directorio en el que estamos.
+- =cd ..=, vamos al directorio superior
+- =cd ~=, vamos al directorio home del usuario.
+- =cd -=, vamos al directorio donde estábamos antes.
+
+Con esos atajos también podemos construir rutas, por ejemplo, con =cd
+~/Documentos= vamos al directorio Documentos del usuario con el que
+estamos.
+
+=cd [ruta]=, /change directory/, cambia al directorio elegido. Podemos escribir la ruta absoluta o bien con atajos:
+- =cd=, vamos a la home del usuario
+- =cd .=, vamos al directorio en el que estamos.
+- =cd ..=, vamos al directorio superior
+- =cd ~=, vamos al directorio home del usuario.
+Con esos atajos también podemos construir rutas, por ejemplo, con =cd ~/Documentos= vamos al directorio Documentos del usuario con el que estamos.
+** touch
+=touch [archivo]=, crea archivo vacío
+** cp
+=cp [opciones] [origen] [destino]=
+- =cp -r= copia los directorios recursivamente
+** mv
+=mv [origen] [destino]=
+
+* wc
+
+Responde a /word count/, contar palabras.
+
+El esquema de uso sería:
+#+BEGIN_SRC 
+wc [opciones] archivo
+
+#+END_SRC
+
+Algunas opciones son:
+- =-l=, cuenta líneas
+- =-c=, cuenta bytes
+- =-m=, cuenta carácteres
+- =-w=, cuenta palabras
+
+** Ejemplo
+
+#+BEGIN_SRC sh
+wc rera_aragon.csv
+
+#+END_SRC
+
+Lo cual nos da las líneas, palabras y bytes que tiene.
+
+** Contar líneas
+Si queremos contar solo las líneas, lo haremos con la opción =-l=:
+
+#+BEGIN_SRC sh
+wc -l rera_aragon.csv
+
+#+END_SRC
+
+** Saber el tamaño (contar los bytes)
+
+#+BEGIN_SRC sh
+wc -c rera_aragon.csv
+
+#+END_SRC
+
+** Contar las palabras
+
+#+BEGIN_SRC sh
+wc -w rera_aragon.csv
+
+#+END_SRC
+
+** Contar número de caracteres
+
+
+#+BEGIN_SRC sh
+wc -m rera_aragon.csv
+
+#+END_SRC
+
+* grep
+Busca cadenas de texto en archivos.
+
+Por ejemplo, si queremos buscar =BLESA=, lo haremos con
+#+BEGIN_SRC sh
+grep "BLESA" black-is-black.csv
+#+END_SRC
+
+** Contar los resultados de la búsqueda con grep
+Para contar esos resultados, le añadimos la opción =-c=
+
+#+BEGIN_SRC sh
+grep -c "BLESA" black-is-black.csv
+#+END_SRC
+
+** Número de línea
+Si queremos que salga el número de línea donde aparece la expresión
+buscada, podemos hacerlo con la opción =-n=:
+
+#+BEGIN_SRC sh
+grep -n "BLESA" black-is-black.csv
+#+END_SRC
+
+** Opciones de búsqueda con OR
+
+Para dar opciones de búsqueda, operador lógico =OR=, caben varias
+opciones a utilizar:
+
+- El operador lógico =\|=
+- Utilizar la combinación =|= pero con la opción =-E=
+- =egrep=
+- =grep= con =-e= y =-e=
+
+*** OR con \|
+
+#+BEGIN_SRC sh
+grep "BLESA\|MORAL" black-is-black.csv
+#+END_SRC
+
+Y para contarlo, lo mismo que antes:
+
+#+BEGIN_SRC sh
+grep -c "BLESA\|MORAL" black-is-black.csv
+#+END_SRC
+
+*** OR con | y -E
+#+BEGIN_SRC sh
+grep -E "BLESA|MORAL" black-is-black.csv
+#+END_SRC
+Y para contarlo, lo mismo con la opción =-c=:
+#+BEGIN_SRC sh
+grep -Ec "BLESA|MORAL" black-is-black.csv
+#+END_SRC
+
+*** egrep
+
+=egrep= es lo mismo que =grep -E=:
+
+#+BEGIN_SRC sh
+egrep "BLESA|MORAL" black-is-black.csv
+
+#+END_SRC
+
+Y para contarlo, lo mismo con la opción =-c=:
+#+BEGIN_SRC sh
+egrep -c "BLESA|MORAL" black-is-black.csv
+
+#+END_SRC
+
+*** grep -e -e
+#+BEGIN_SRC sh
+grep -e "BLESA" -e "MORAL" black-is-black.csv
+
+#+END_SRC
+
+Igualmente, si quisiéramos contarlo, añadimos la opción =-c=:
+
+#+BEGIN_SRC sh
+grep -ce "BLESA" -e "MORAL" black-is-black.csv
+
+#+END_SRC
+
+** grep AND
+
+Aunque no hay operador =AND= en =grep=, podemos hacerlo de varias
+maneras:
+
+- Con la opción =-E= y separando las cadenas con =.*=:
+- Encadenando =grep=
+
+*** grep AND -E .*
+
+#+BEGIN_SRC sh
+grep -E "BLESA.*TABACO" black-is-black.csv
+
+#+END_SRC
+Y nos dirá si Miguel Blesa ha comprado TABACO con la tarjeta black.
+
+*** grep AND -E |
+#+BEGIN_SRC sh
+grep -E "BLESA" black-is-black.csv | grep -E "TABACO"
+
+#+END_SRC
+
+** grep NOT
+Con el uso de la opción =-v= se pueden simular condiciones =NOT=. La
+opción =-v= es para búsquedas inversas, es decir, busca todas las
+líneas excepto las que cumplan este patrón. Por ejemplo:
+
+#+BEGIN_SRC sh
+grep -vE "CARGO|COMPRA|REINTEGRO|DISPOSICION|BONIFICACION|CUOTA|FACTURACIÓN|ANTICIPO|IMPOSICION|CAJEROS|Facturación|Importes|CARGA|ANULACION" black-is-black.csv
+
+#+END_SRC
+
+
+* find
+=find [ruta] [opciones] [expresión]=
+- =-name=, busca por nombre
+- =-size=, busca por tamaño.
+- =iname=, busca en modo sensitivo.
+
+Buscas archivos o directorios desde la línea de comandos. Puedes
+buscar filtrando por:
+- Permisos
+- Propiedad
+- Fecha/hora de modificación
+- Tamaño
+** Solo find
+Si solo lanzamos =find=, nos devolverá los archivos, directorios y
+subdirectorios por debajo del lugar donde nos encontramos.
+
+Miremos primero dónde nos encontramos, volvamos a =pwd=:
+
+#+BEGIN_SRC sh
+pwd
+
+#+END_SRC
+
+*** Dónde nos encontramos
+
+Según el sistema operativo que utilicemos, esta orden nos devolverá
+rutas distintas:
+
+- GNU/Linux: /home/usuarix/proyectos/operaciones-logicas-datos
+- MacOSX: 
+- [[http://adrianvergarainformatica.esy.es/estructura-de-directorios-en-windows/][Windows]]: c:\Users\Mengana\Documents\operaciones-logicas-datos 
+
+*** find sobre directorio
+
+En ese caso estamos en
+=/home/flow/proyectos/operaciones-logicas-datos=, vamos a ver qué
+contiene este directorio:
+
+#+BEGIN_SRC sh
+find
+
+#+END_SRC
+
+#+RESULTS:
+| 0                           |
+| ./.Readme.org.~242df0ee     |
+| ./README.md                 |
+| ./Readme.org                |
+| ./.#Readme.org              |
+| ./suma.txt                  |
+| ./black_corrupcion.csv      |
+| ./black-is-black.csv        |
+| ./black-is-black_backup.csv |
+| ./#Readme.org#              |
+| ./Readme.org~               |
+| ./errores.txt               |
+
+*** Otras formas de find sobre directorio
+
+Se puede hacer =find= también de dos formas:
+
+- =find .=
+- =find . -print=.
+
+** find con ruta, filtro y término
+
+Pero normalmente lo utilizaremos siguiendo esta estructura:
+
+#+BEGIN_EXAMPLE
+find ruta filtro-de-búsqueda término-de-búsqueda
+#+END_EXAMPLE
+
+** otra ruta
+Podemos poner otra ruta:
+
+#+BEGIN_SRC shell :results output
+find ~/docs/softwarelibre/
+
+#+END_SRC
+
+#+BEGIN_QUOTE
+Atención: si no ponemos la opción =:results algo= y superamos las 999
+líneas, no obtendremos la salida de lo ejecutado.
+#+END_QUOTE
+
+** ejemplo find Readme.org
+Vamos a buscar ahora todos los archivos =Readme.org= por debajo de un
+directorio con la opción =-name= y voy a entubar la salida con a =wc -l= 
+
+#+BEGIN_SRC sh :results output raw
+find ~/ownCloud/proyectos/ -name Readme.org | wc -l
+#+END_SRC
+
+#+RESULTS:
+74
+
+** ejemplo find comodines
+Y también podemos incluir /comodines/. Por ejemplo, si quisiéramos todos los
+archivos =*.org=, no solo los que se llaman =Readme.org=:
+
+#+BEGIN_SRC sh :results output raw replace
+find ~/ownCloud/proyectos -name *.org | wc -l
+
+#+END_SRC
+
+#+RESULTS:
+74
+74
+13
+
+** find regexp en archivo
+Y si no queremos todos los archivos sino alguno en concreto, por
+ejemplo, que contuviera /bash/:
+
+#+BEGIN_SRC sh :results html
+find ~/ownCloud/docs/softwarelibre -name *bash*.org
+
+#+END_SRC
+
+** find tamaño de archivos
+O tamaños de archivos:
+
+#+BEGIN_SRC shell :results html
+find . -size +1M
+
+#+END_SRC
+
+** find tamaño de directorios
+O de directorios
+
+#+BEGIN_SRC shell :results html
+find ~/ -folder +300M
+#+END_SRC
+
+** find tipo de archivo
+O tipo de archivo:
+
+#+BEGIN_SRC shell :results html
+find . -type f *.org
+#+END_SRC
+
+** find encontrar archivos y borrarlos
+O encontrar archivos más antiguos que un año y borrarlos:
+#+BEGIN_EXAMPLE
+find .cache/ -type f -atime +365 -exec rm \;
+#+END_EXAMPLE
+
+** find encontrar y ordenar
+Encontrar y ordenar
+
+#+BEGIN_SRC shell :results html
+find ~/Descargas/ -size +30M | sort -hr
+#+END_SRC
+
+** find script bash
+Y programar:
+
+#+BEGIN_EXAMPLE
+find ./ -name "*.png" | sort | while read file; do tesseract $file "`basename $file" | sed 's/\.[[:alnum:]]*$//'`.txt -l spa -psm 3; done
+#+END_EXAMPLE
+
+Donde:
+- Encontramos los archivos del tipo =png= sobre la carpeta elegida
+- Los ordenamos con =sort=
+- Empezamos bucle con =while=
+- Ejecutamos =tesseract= (herramienta OCR) sobre cada archivo =$file=
+- Cambiamos el nombre y el tipo a =txt=.
+
+* head
+
+El comando =head= muestra, por defecto, las diez primeras líneas de un archivo.
+
+#+BEGIN_SRC shell :results html
+head rera_aragon.csv
+
+#+END_SRC
+
+** head con otro número de líneas
+Si queremos un número de líneas distintas, tan solo tenemos que
+ponerlo como argumento del comando. Por ejemplo, si solo queremos 4 líneas:
+
+#+BEGIN_SRC sh
+head -4 rera_aragon.csv
+#+END_SRC
+
+* tail
+
+Si =head= nos mostraba las diez primeras líneas de un archivo, el
+comando =tail= muestra las 10 últimas líneas de un archivo.
+
+ #+BEGIN_SRC shell :results html
+tail rera_aragon.csv
+#+END_SRC
+
+** tail modificar nº%% líneas
+Y también podemos modificar el número de líneas que salen
+especificándolo como argumento. Por ejemplo, si queremos las últimas
+cinco líneas:
+
+#+BEGIN_SRC shell :results html
+tail -5 rera_aragon.csv
+
+#+END_SRC
+
+#+BEGIN_SRC shell :results html
+tail -n2 rera_aragon.csv
+
+#+END_SRC
+
+* head y tail
+
+Vistos estos dos comandos, =head= y =tail=, se pueden combinar para
+que la salida de uno sirva como entrada de otro, y de esta manera,
+saber qué contiene una línea en concreto.
+
+La concatenación de comandos lo hacemos con la tubería =|=. La tubería
+o /pipe/ sirve para pasar la ejecución de un comando a otro.
+
+** Línea nº 30
+Si quisiéramos saber el contenido de la línea número treinta del
+fichero, mostraríamos las 30 primeras líneas con =head -30= y lo
+concatenaríamos con =tail -1= para saber la última de esas 30 primeras
+líneas:
+
+#+BEGIN_SRC sh :results html
+head -30 rera_aragon.csv | tail -1
+
+#+END_SRC
+
+** concatenación de tres comandos
+Otro ejemplo, concatenando tres comandos: =head=, =tail= y =cut=:
+
+#+BEGIN_SRC sh :results html
+head -n20 rera_aragon.csv | tail -n5 | cut -c1-8
+
+#+END_SRC
+
+* Comandos múltiples
+- Podemos ejecutar un comando
+- Pero también un comando y después otro
+- O un comando y si tiene éxito entonces el segundo.
+- Al reves, un comando si el primero no tuvo éxito.
+
+Ejemplos, a continuación.
+** Primero uno y luego otro =;=
+Si queremos ejecutar un comando y luego otro, independientemente de si
+el primero da error, utilizamos el operador =;=
+
+*** Ejemplo de éxito
+
+En este ejemplo, la primera orden ofrece resultados, y por eso el
+=echo= tiene sentido:
+#+BEGIN_SRC sh :results html
+grep BLESA black-is-black.csv | wc -l ; echo "líneas con la palabra BLESA...\n¡Qué pasada!"
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_EXPORT html
+1650
+líneas con la palabra BLESA...
+¡Qué pasada!
+#+END_EXPORT
+
+*** Ejemplo fallido
+En este ejemplo, no devuelve resultados porque no hay un archivo
+llamado black. Sin embargo, aparece el mensaje a continuación como en
+el primer caso, que resulta un poco incongruente.
+#+BEGIN_SRC sh :results html
+grep CLESA black; echo "líneas con la palabra CLESA...\n¡Qué pasada!"
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_EXPORT html
+líneas con la palabra CLESA...
+¡Qué pasada!
+#+END_EXPORT
+
+** =&&=
+
+Si queremos ejecutar el comando, y que siga con el segundo sólo si el
+primero devuelve algo, utilizamos el operador /&&/:
+
+#+BEGIN_SRC sh :results org
+grep CLESA black && echo "líneas con la palabra CLESA...\n¡Qué pasada!"
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC org
+#+END_SRC
+
+** =||=
+
+Al contrario, si queremos ejecutar un comando después de otro pero
+queremos que se ejecute el segundo solo si el primero dio error,
+usaremos el operador =||=:
+
+#+BEGIN_SRC sh :results org
+grep CLESA black-is-black || echo "No hay ningún chorizo CLESA"
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC org
+No hay ningún chorizo CLESA
+#+END_SRC
+
+* Sobre los datos
+** cut
+Para filtrar columnas
+** sed
+Sustituir una palabra por otra, por ejemplo:
+
+#+BEGIN_SRC sh
+sed 's/BLESA/CORRUPCION/' black-is-black.csv > black_corrupcion.csv
+#+END_SRC
+
+Y comprobamos si hay alguna línea con =BLESA= en el archivo =black_corrupcion.csv=:
+
+#+BEGIN_SRC sh
+grep -c "BLESA" black-corrupcion.csv
+
+#+END_SRC
+
+** diff
+=diff= Mostrar diferencias entre ficheros:
+diff Black.csv Black_corrupcion.csv
+Comparar dos archivos. Si son iguales, no devuelve nada, si difieren muestra el byte y el número de línea de la primera diferencia.
+cmp Black.csv Black_corrupcion.csv
+Para reemplazar
+** split
+Para dividir en varios archivos
+** sort
+para ordenar
+
+* Referencias bibliográficas                                             :OK:
+- Find: http://www.binarytides.com/linux-find-command-examples/
+- Aristarain, Manuel & Tigas, Mike & Merril, Jeremy B. (2014) /Scraping PDFs with Tabula/. URL: https://s3.amazonaws.com/media.miketigas.com/files/20140627/20140627-tabula-IRE2014-withnotes.pdf
+- Crucianelli, Sandra. (2013) /Herramientas digitales para periodistas/. Centro Knight para el Periodismo en las Américas de la Universidad de la Universidad de Texas. URL: https://knightcenter.utexas.edu/books/HDPP.pdf
+- García Santiago, Lola. (2003) /Extraer y visualizar información en Internet: el Web Mining/. Gijón: Ediciones Trea
+- Gray, Jonathan & Bounegru, Liliana & Chambers, Lucy. (2012) /Data Journalism Handbook/. European Journalism Centre y Open Knowledge Foundation. URL: http://datajournalismhandbook.org/
+- Kayser-Brill, Nicolas. (2014) /Data wants to be free! (and clean)/. Medialab-Prado. URL: http://bit.ly/free-clean
+- Méndez Rodriguez, Eva Mª. (2002) /Metadatos y Recuperación de información: estándares, problemas y aplicabilidad en bibliotecas digitales/. Gijón: Trea
+- Nguyen, Dan. (2010) /Chapter 3: Turning PDFs to Text/. Propublica, Journalism in the Public Interest. URL: https://www.propublica.org/nerds/item/turning-pdfs-to-text-doc-dollars-guide
+- Nguyen, Dan. (2010) /Chapter 5: Getting Text Out of an Image-Only PDF/. ProPublica, Journalism in the Public Interest. URL: https://www.propublica.org/nerds/item/image-to-text-ocr-and-imagemagick
+- Schoolofdata, (2014) /Obteniendo datos de los PDF/. Web: School of Data. URL: http://es.schoolofdata.org/obteniendo-datos-de-los-pdfs/
+- Cómo utilizar /Google OCR/,  https://www.youtube.com/watch?v=DPJJON26Do4
+- Introducción al scraping de /PDF/, http://www.irekia.euskadi.eus/es/news/11703-introduccion-google-refine-curso-periodismo-datos
+- Antecedentes y fundamentos del Periodismo de datos: Background and
+  basis of Data Journalism. Pilar José López. UCM. https://riuma.uma.es//xmlui/handle/10630/12465
+- Periodismo de datos y Web Semántica, http://revistas.ucm.es/index.php/CIYC/article/view/41718
+- Revealing the roots of a riot, Susan Rosegrant, http://home.isr.umich.edu/sampler/revealing-the-roots-of-a-riot/
+- The Detroit riots of 1967 hold some lessons for the UK, Gary Younge, https://www.theguardian.com/uk/2011/sep/05/detroit-riots-1967-lessons-uk
+- Andy Kirk, A Collection of 131 Books About or Related to Data Visualisation http://www.visualisingdata.com/references/
+- [[http://www.abramis.co.uk/books/bookdetails.php?id%3D184549616][Data Journalism]]: Mapping the future, de John Mair y Richard Lance
+  Keeble.
+- [[http://www.columnfivemedia.com/book/][Infographics]], libro de [[http://www.columnfivemedia.com][Column Media Five]]
+- [[http://infosthetics.com][Information Aesthetics]] es un blog diseñado y mantenido por [[http://andrew.ticle.com/][Andrew
+  Vande Moere]], profesor asociado del Laboratorio de Diseño de Leuven,
+  Departamento de Arquitectura, Urbanismo y Planificación, [[http://www.kuleuven.be/][KU Leuven]],
+  Bélgica.
+-  Interactive Visualization, Bill Ferster [[http://www.albertocairo.com][Alberto Cairo]] habla de [[http://www.thefunctionalart.com/2012/11/interactive-visualization-by-bill.html][Interactive visualization, de Bill Ferster]]
+As I've mentioned elsewhere, I believe that infographics and data visualization are going mainstream. I don't have any hard data to back up this hunch, just anecdotal evidence, such as the number of authors that have recently released books on those topics, or are currently writing about them. And the amount of blogs in my RSS feed.
+
+Interactive Visualization, by Bill Ferster, is the latest addition to the visualization canon. Bill has led several initiatives that blend computational visualization, digital humanities, and education. The one that I am more familiar with is VisualEyes, which I recommend you to visit and try. In fact, the most interesting parts of Bill's book are precisely the ones in which he describes his experience as an innovator and educator at the University of Virginia.
+
+The other chapters of Interactive Visualization offer plenty to think about, as well. The book is a broad, short, and breezy introduction to the field. As a survey of the academic literature and current research, it covers a lot of ground. Bill also presents his own framework for creating visualizations: /ASSERT/:
+- Ask a question
+- Search for information
+- Structure the data
+- Envision the answer
+- Represent the visualization
+- Tell a story
+which he explains in detail in the central part of the book.
+
+Here you have a few quotes:
+
+From the Foreword, written by Ben Shneiderman: Some humanities scholars fear that statistical analyses, data-based research, and flashy visualizations will somehow shift attention to computer-based manipulation and away from analysis. Some data mining and machine learning promoters mistakenly reinforce the belief that algorithms reveal truths and are above reproach. Countering these shallow models with richer understandings of the unique human capabilities for reason, inquiry, insight, discovery, and creative contributions will encourage humanities scholars to produce new insights and contribute to important current debates about the power and limits of technology.
+
+From the Introduction: Information visualization involves the reduction of raw information, such as data, into simpler graphical elements that use spatial variables, such as position, size, shape, and color, to reveal visual relationships and patterns implicit but hidden within the data.
+
+As a journalist, I couldn't help but underline this paragraph (from Chapter 7): Stories are how people make sense of the world. Stories are used to chunk information into more memorable units, thereby avoiding some of the limitations of short-term memory. By chunking the information in a compact and structured format, people are able to generalize and compare experiences in ways not possible if the details were unorganized sets of unrelated information. Stories provide scripts or schemas in which people interpret new information from previous experiences or portrayals.
+[[http://mitpress.mit.edu/books/interactive-visualization-0][Libro en MIT]]
+*** Numbers in the newsroom
+Sarah Cohen
+Using Math and Statistics in News.
+For investigative reporters and editors
+*** Periodismo de Precisión
+Philip Meyer
+
+*** Periodismo de precisión
+José Luis Dader
+La vía socioinformática de escribir noticias
+*** The Functional Art
+[[http://www.thefunctionalart.com/][The Functional Art]] es el libro de Alberto Cairo que ofrece una introducción a gráficos de información y visualización.
+
+*** Una aproximación al periodismo de precisión
+Patricia Blanco Barrios
+*** Noticia sobre Congreso de Periodismo de Datos Medialab Prado
+En la [[http://www.prnoticias.com/index.php/prensa/559-periodismo/20109801-la-red-al-servicio-del-periodismo-de-datos][noticia sobre el congreso]], El periodismo de datos es uno de los últimos resquicios que le quedan a la profesión para seguir manteniendo su esencia crítica y gracias a las características de la sociedad red, solo hace falta querer hacerlo. Ya que en la red se tienen todas las herramientas necesarias para realizar periodismo de altura.
+[[https://www.twitter.com/antoniomaestre][Twitter de Antonio Maestre]]
+

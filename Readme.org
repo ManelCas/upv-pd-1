@@ -1,0 +1,1459 @@
+#+LANGUAGE: es
+#+CATEGORY: manual, presentación, congreso, ponencia
+#+TAGS: commandline, línea de comandos, ls, pwd, mkdir, cd, touch, cp, mv, stdin, stdout, stderr, posix, diff, grep, egrep, find, awk, sed
+#+DESCRIPTION: Acometer un proyecto en Medialab-Prado
+#+TITLE: Operaciones lógicas con datos
+#+DATE: <2017-05-06 sáb 10:00>
+#+AUTHOR: Adolfo A. Bravo y Pilar J. López
+#+EMAIL: adolfo@medialab-prado.es y pilarjlopez@hotmail.com
+#+OPTIONS: todo:nil pri:nil tags:nil ^:nil 
+
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:nil reveal_control:t
+#+OPTIONS: reveal_mathjax:t reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
+#+OPTIONS: reveal_width:1200 reveal_height:800
+#+OPTIONS: toc:nil
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: moon
+#+REVEAL_HLEVEL: 2
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Org-Reveal Introduction.">
+#+REVEAL_POSTAMBLE: <p> Creado por adolflow. </p>
+#+REVEAL_PLUGINS: (highlight markdown notes)
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+
+
+* Necesidades previas
+- Disponer de un ordenador con sistema operativo sobre el que tengamos
+  permisos de superusuario/administración.
+- Manejo del entorno de escritorio.
+- Instalación y desinstalación de programas.
+- Resolución de problemas.
+- Conocimiento del árbol de directorios. Rutas y enlaces simbólicos
+- Manejo de versiones de archivos.
+
+* Fundamental
+- Conocimiento de la arquitectura hardware del ordenador.
+- Conocimiento de la estructura del sistema operativo.
+- Uso de la terminal, consola Unix.
+- Manejar la estructura de ficheros.
+- Distinguir entre rutas absolutas y relativas.
+- Nociones de las distintas codificaciones de caracteres.
+- Qué tipos de datos hay
+- Qué tipos de formatos de datos hay.
+- Usuarios y grupos
+
+* Opcional
+
+- Atajos de teclado.
+- Conocer la Web: navegador, lenguaje HTML, programas, utilidades,
+  atajos, buscadores.
+- Git
+- Nociones de periodismo de datos: investigación, datos y
+  visualización.
+
+* Programación
+** Lenguajes informáticos
+
+** Estructura
+#+BEGIN_EXAMPLE
+Sujeto Predicado Objeto
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+Función Variable Argumento
+#+END_EXAMPLE
+** Sintaxis de los comandos
+*** Ejecución del comando sin más
+Para ejecutar el comando sin más, por ejemplo, =ls=, escríbelo y pulsa
+=Enter= o =retorno de carro=
+
+#+BEGIN_SRC sh :output org
+ls
+
+#+END_SRC
+
+#+RESULTS:
+| black_corrupcion.csv      |
+| black-is-black_backup.csv |
+| black-is-black.csv        |
+| errores.txt               |
+| Readme.html               |
+| README.md                 |
+| Readme.org                |
+| Readme.org~               |
+| suma.txt                  |
+
+*** Comando más argumentos
+
+En el caso de =ls=, podemos decirle que nos liste un archivo concreto,
+por ejemplo:
+
+#+BEGIN_SRC sh :output org
+ls errores.txt
+
+#+END_SRC
+
+#+RESULTS:
+: errores.txt
+
+Otros comandos pueden requerir uno o más argumentos.
+
+*** Comando con opciones
+
+- Cada comando tiene múltiples opciones, y se pueden combinar.
+- Las opciones se suelen escribir con una sigla que corresponde con
+  una palabra, separado por un guión.
+- Por ejemplo, si escribimos =ls -r=, listamos el directorio en orden
+  inverso.
+
+#+BEGIN_SRC sh :output org
+ls -r
+
+#+END_SRC
+
+#+RESULTS:
+| suma.txt                  |
+| Readme.org~               |
+| Readme.org                |
+| README.md                 |
+| Readme.html               |
+| errores.txt               |
+| black-is-black.csv        |
+| black-is-black_backup.csv |
+| black_corrupcion.csv      |
+
+Nótese la diferencia con la ejecución anterior.
+
+** Tipos de datos
+- Números enteros o /integers/
+- Decimales, flotantes o /floats/
+- Cadenas -de caracteres- o /strings/
+- Booleanos: verdades o falso
+- Otros objetos
+** Algunos símbolos
+- =\n=, línea nueva
+- =\b=, backspace
+- =\r=, retorno de carro.
+- =\t=, tabulador
+- =\f=, formfeed
+- =\e=, espacio
+- =\\=, barra invertida
+- =\"=, comillas
+- =\000=, carácter octal.
+
+* Herramientas
+- Navegador: [[https://www.mozilla.org/es-ES/firefox/new/][Firefox]] y [[https://www.google.es/chrome/browser/desktop/index.html][Chrome]]
+- Compresor: [[http://7-zip.org][7-zip]]
+- Consola: [[https://www.cygwin.com/][Cygwin]]
+- Editor: [[https://blog.infotics.es/2015/11/11/editor-de-textos/][Emacs]], [[https://notepad-plus-plus.org/][Notepad++]], [[https://www.sublimetext.com/][Sublime]], [[https://atom.io/][Atom]]... puedes leer [[https://blog.infotics.es/2015/11/11/editor-de-textos/][cómo elegir un buen editor de textos]].
+- Git: [[https://git-scm.com/][git-scm]]
+- Github: [[https://desktop.github.com/][desktop]]
+
+
+** Configuración Cygwin
+http://stackoverflow.com/questions/1494658/how-can-i-change-my-cygwin-home-folder-after-installation
+
+Según comentan ahí, hay que añadir la variable =db_home= a
+ =/etc/nsswitch.conf= con la información =windows= para tener el
+ directorio de usuarix de Windows como =home=, es decir:
+
+#+BEGIN_EXAMPLE
+db_home: windows
+#+END_EXAMPLE
+
+O de forma equivalente:
+
+#+BEGIN_EXAMPLE
+db_home: /%H
+#+END_EXAMPLE
+
+De esta última manera puedes interpretar el esquema y hacer que estén
+dentro del subdirectorio =cygwin=, por ejemplo:
+
+#+BEGIN_EXAMPLE
+db_home: /%H/cygwin
+#+END_EXAMPLE
+
+En esta [[http://stackoverflow.com/questions/225764/safely-change-home-directory][página]] proponen otro método:
+
+#+BEGIN_SRC sh
+mkpasswd -l -p "$(cygpath -H)" > /etc/passwd
+#+END_SRC
+
+
+** Emacs
+Se puede [[https://www.gnu.org/software/emacs/download.html][descargar]] y utilizar tanto en Linux, Windows o
+Mac. Podemos descargarlo desde:
+- [[http://ftp.gnu.org/gnu/emacs][ftp de Emacs]]
+- [[https://www.gnu.org/order/ftp.html][elegir un mirror]]
+- dejar que nos sugieran el mirror [[http://ftpmirror.gnu.org/emacs/][más cercano a nuestra ubicación.]]
+
+** Markdown
+
+- [[https://github.com/flowsta/markdown][Mis apuntes de Markdown]]
+- [[http://docs.podigee.com/guides/markdown-cheatsheet.html][Markdown Cheatsheet]]
+- [[https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-spanish.pdf][R Markdown Cheatsheet: R, Markdown y YAML]]
+
+* Línea de comandos
+La línea de comandos es una interfaz de usuarix basada en líneas de
+comandos (/Command Line Interface/ o /CLI)/.
+
+Cuando utilizamos un ordenador, tenemos interfaces para utilizar los
+programas.
+
+** Interfaces de usuarix
+
+En la actualidad, cuando utilizamos un ordenador personal --de forma
+general--, usamos interfaces gráficas de usuarix /GUI/ (/Graphic User
+Interface/).
+
+Pero también podemos, de forma general o específica, utilizar otras
+interfaces como son:
+
+- Las referidas /CLI/
+- Las /NUI/ (/Natural User Interface/ o
+interfaz natural de usuarix), como pueden ser las pantallas
+capacitivas multitáctiles, /Kinect/ --con el movimiento-- o /Siri/
+--con el reconocimiento de lenguaje natural-- .
+
+** Historia
+Al inicio de los ordenadores, solo había líneas de comandos para
+comunicarnos con ellos.
+
+Las /GUI/ fueron desarrollados en el /Centro de Investigación de Xerox en
+Palo Alto/ (/Palo Alto Research Center/, /PARC/).
+
+Tiempo después, /Apple/ pagó para estudiar la idea, que finalmente se
+concreto en su /GUI/.
+
+El MIT desarrolla una GUI para Unix en 1986, X.
+
+El sistema XFree86 de Linux se desarrolló en 1996, una implementación
+libre del original X, al que homenajea en el nombre.
+** Ventajas de la línea de comandos
+- Ahorras tiempo
+- Te ofrecen una alternativa a las GUI.
+- Te acercan más a cómo funcionan los sistemas POSIX
+- Te preparan para la programación.
+- Aprendes otra fora de hacer las cosas.
+** Conceptos
+- Si la terminal es la interfaz más directa con el sistema operativo,
+  dado que estamos en un entorno gráfico, utilizaremos un emulador de
+  terminal.
+- Una /shell/ es un intérprete de comandos de la terminal.
+- Un comando u orden es una utilidad que ejecutas en la /shell/.
+- La salida es lo que devueve el comando, normalmente en la terminal,
+  llamada /STDOUT/ por /STandarD OUTput/ o salida estándar.
+- La entrada de datos, argumentos o comandos es lo que se conoce como
+  /STDIN/ por /STandarD INput/.
+- Un proceso es una aplicación que corre (está ejecutada, funciona) en
+  tu ordenador. Puede estar activa o durmiendo.
+
+A process is a running application on your computer. It can be active, sleeping,
+* Atajos de consola
+
+- =CTRL + L=, limpia la consola, es lo mismo que darle a =clear=
+- =CTRL + A=, ir al inicio de la línea
+- =CTRL + E=, ir al final de línea.
+- =CTRL + U=, limpia la línea.
+- =CTRL + C=, mata el proceso.
+- =CTRL + Z=, para el proceso.
+- =CTRL + D=, fin del archivo.
+
+* Explorador de archivos
+** ls
+Lista los archivos del punto en el que nos encontramos. Viene del
+inglés /list/. Si lo lanzamos sin argumentos, obtendremos un listado
+de los archivos y directorios que contiene ese directorio:
+
+#+BEGIN_SRC sh
+ls
+
+#+END_SRC
+
+=ls [opciones]= lista los archivos del punto en el que nos encontramos.
+- =-a=, lista todos los archivos.
+- =-l=, lista en formato largo
+Para emplear argumentos, utilizaremos la estructura:
+
+#+BEGIN_SRC sh
+ls -a
+
+#+END_SRC
+
+Si queremos saber la información de cada archivo y directorio, lo
+haremos con la opción =-l=:
+
+#+BEGIN_SRC sh
+ls -l
+
+#+END_SRC
+
+** pwd
+
+=pwd= es el acrónimo de /print working directory/ o /muestra por
+pantalla el directorio de trabajo actual/. Es decir, imprime la ruta
+absoluta del sistema donde nos encontramos. 
+
+#+BEGIN_SRC sh
+pwd
+#+END_SRC
+
+** mkdir
+=mkdir [opciones] [nombre-directorio]=, /make directory/, crea un directorio
+- =-p=, make parents
+
+** cd
+Sirve para cambiar de directorio. Viene de las iniciales del inglés
+/change directory/.
+
+Si escribimos solo =cd=, vamos a nuestro espacio /home/ definido en la
+variable de entorno =HOME=:
+
+#+BEGIN_SRC sh
+env |grep HOME
+
+#+END_SRC
+
+Por tanto, iremos a =/home/flow=
+
+Para cambiar de directorio, podemos elegir la ruta absoluta o la relativa.
+
+#+BEGIN_EXAMPLE
+cd [ruta]
+#+END_EXAMPLE
+
+- =cd=, vamos a la home del usuario
+- =cd .=, vamos al directorio en el que estamos.
+- =cd ..=, vamos al directorio superior
+- =cd ~=, vamos al directorio home del usuario.
+- =cd -=, vamos al directorio donde estábamos antes.
+
+Con esos atajos también podemos construir rutas, por ejemplo, con =cd
+~/Documentos= vamos al directorio Documentos del usuario con el que
+estamos.
+
+=cd [ruta]=, /change directory/, cambia al directorio elegido. Podemos escribir la ruta absoluta o bien con atajos:
+- =cd=, vamos a la home del usuario
+- =cd .=, vamos al directorio en el que estamos.
+- =cd ..=, vamos al directorio superior
+- =cd ~=, vamos al directorio home del usuario.
+Con esos atajos también podemos construir rutas, por ejemplo, con =cd ~/Documentos= vamos al directorio Documentos del usuario con el que estamos.
+** touch
+=touch [archivo]=, crea archivo vacío
+** cp
+=cp [opciones] [origen] [destino]=
+- =cp -r= copia los directorios recursivamente
+** mv
+=mv [origen] [destino]=
+* Entrada Salida I/O, control del flujo
+  
+#+CAPTION: Diagrama de funcionamiento de STDIN, STDOUT y STERR. Fuente: Wikipedia: Esquema de POSIX y C de entrada estándar. Licencia Dominio Público.
+#+ATTR_HTML: alt Diagrama de funcionamiento de STDIN, STDOUT y STERR. Fuente: Wikipedia: Esquema de POSIX y C de entrada estándar. Licencia Dominio Público
+https://upload.wikimedia.org/wikipedia/commons/7/70/Stdstreams-notitle.svg
+
+** POSIX
+
+Para saber de los procesos de entrada y salida de datos, conviene
+saber de POSIX. ¿Qué es POSIX? Es lo que hace diferente Unix de
+Windows, es lo que te complica o te facilita la vida si quieres una
+compatibilidad en las operaciones que puedes hacer a nivel de sistema
+operativo.
+
+** Qué es POSIX
+
+[[https://es.wikipedia.org/wiki/POSIX][POSIX]] es el acrónimo de /Portable Operating System Interface/
+(Interfaz de Sistema Operativo Portable), y la /X/ viene de UNIX como
+seña de identidad de la API.
+
+Como anécdota, decir que [[https://stallman.org/articles/posix.html][el nombre fue sugerido por Richard Stallman]],
+fundador del proyecto [[https://www.gnu.org/][GNU]], cuando en 1980 pertenecía al comité del
+[[https://www.ieee.org/index.html][IEEE]] (/Institute of Electrical and Electronics Engineers/, Instituto
+de Ingenierxs Electrónicxs y Eléctricxs) que desarrolló el protocolo
+finalmente conocido como /POSIX/.
+
+** Estándares
+
+Se trata de una [[https://en.wikipedia.org/wiki/POSIX][familia de estándares]] que pretenden mantener la
+compatibilidad entre sistemas operativos. /POSIX/ define la /API/, así
+como la línea de comandos y otras interfaces necesarias.
+
+** 3 archivos
+
+Cada proceso en estos entornos suele disponer de tres archivos
+abiertos al comienzo de su ejecución:
+1. La entrada
+2. La salida
+3. La salida de errores.
+
+** Descriptores de archivos
+El hecho de ser estándares es porque suelen estar asignados a
+descriptores de archivos conocidos, de manera que un programa:
+
+- Siempre tomará los datos de entrada por el descriptor cero 0.
+- Enviará los resultados por el descriptor uno 1.
+- Mostrará los errores por el descriptor dos 2.
+
+** STDIN, STDOUT, STDERR
+
+Para referirnos a ellos, se les denomina:
+1. La entrada, /STDIN/ (/STanDard INput/, entrada estándar).
+2. La salida, /STDOUT/ (/STanDard OUTput/, salida estándar).
+3. La salida de errores, /STDERR/ (/STanDard ERRor/, salida estándar
+   de errores).
+
+** La terminal
+Esta convención no tiene mucho sentido en sistemas gráficos o en
+programas que funcionan con demonios, pero alcanzan todo su potencial
+con la terminal.
+
+La terminal o emulador de terminal es el programa que nos conecta con
+la /shell/ del sistema, el intérprete de comandos del sistema operativo.
+
+** Entrada y salida de datos
+
+- La entrada de datos suele ser el teclado
+- La salida típica suele ser la pantalla
+- La salida de errores suele suplir a la salida típica, en caso de que
+  se produzcan errores en la ejecución del comando.
+
+** Modificación de los procesos
+
+Estos procesos se pueden modificar:
+- Podemos redirigir la salida a un archivo.
+- O bien dirigir la entrada a un comando.
+- O redirigir una salida a una entrada.
+
+** Redirección de =STDOUT= y =STDERR=
+Quienes trabajáis habitualmente con Github, quizás os suene cuando
+creáis un repositorio nuevo que entre las opciones para hacerlo, dice:
+
+#+BEGIN_EXAMPLE
+...or create a new repository on the command line
+
+echo "# prueba-borrar" >> README.md
+#+END_EXAMPLE
+
+Lo que aquí proponen es utilizar el comando =echo=, que como su nombre
+indica nos devuelve lo que le digamos, y dirigir la salida a un
+archivo.
+
+*** echo
+
+Si escribimos =echo hola=, la salida del comando por la salida típica,
+que es la pantalla, será =hola=:
+
+#+BEGIN_SRC sh
+echo hola
+
+#+END_SRC
+
+*** echo y STDOUT a un archivo
+
+Com proponían en Github, si le decimos a =echo= que devuelva =hola=
+pero queremos incluirlo en un archivo de nombre =README.md=, haremos:
+
+#+BEGIN_SRC sh
+echo hola > README.md
+
+#+END_SRC
+
+*** STDOUT a un archivo
+
+Como escribíamos en el ejemplo anterior, el carácter =>= redirecciona
+la salida típica o =STDOUT= al archivo =README.md=.
+
+¿Lo crea? ¿Lo destruye?
+
+- Si no existía ese archivo, efectivamente, lo crea con =hola= como
+  contenido.
+- Si existía, lo sobreescribe con =hola= como contenido.
+
+*** STDOUT a un archivo sin sobreescritura
+
+Si no queremos sobreescribirlo, porque ya existía, sino añadir
+contenido a ese archivo, en vez de =>= utilizaremos =>>=:
+
+Como ya he creado con el ejemplo anterior el archivo =README.md= con
+el contenido =hola=, ahora voy a añadir =¿qué tal=:
+
+#+BEGIN_SRC sh
+echo qué tal >> README.md
+#+END_SRC
+
+Para comprobarlo, hacemos un =more=:
+
+#+BEGIN_SRC sh
+more README.md
+
+#+END_SRC
+
+#+RESULTS:
+
+*** Atención
+
+Aunque aquí no hemos usado comillas, es recomendable introducir el
+texto entre comillas, así nos evitamos que haya palabras reservadas
+que empleemos en la frase:
+
+#+BEGIN_SRC sh
+echo "pues muy bien, gracias" >> README.md
+
+#+END_SRC
+
+Así añadiremos una tercera línea a =README.md= con ese texto.
+
+*** Repaso de STDOUT
+En [[http://www.tldp.org/LDP/abs/html/io-redirection.html][io-redirection]], hacen un buen repaso:
+
+Redirección de =STDOUT= a =archivo=, donde lo crea o lo sobreescribe:
+
+#+BEGIN_EXAMPLE
+comando 1> archivo
+#+END_EXAMPLE
+
+Redirección y añadido de =STDOUT= a =archivo=:
+#+BEGIN_EXAMPLE
+comando 1>> archivo
+#+END_EXAMPLE
+
+*** Repaso de STDERR
+
+Redirección de =STDERR= a =archivo=:
+#+BEGIN_EXAMPLE
+comando 2> archivo
+#+END_EXAMPLE
+
+Redirección de =STDERR= y se añade al final del =archivo=:
+#+BEGIN_EXAMPLE
+comando 2>> archivo
+#+END_EXAMPLE
+
+Redirección de =STDOUT= y =STDERR= a =archivo=:
+
+#+BEGIN_EXAMPLE
+comando &> archivo
+#+END_EXAMPLE
+
+** Redirección de =STDIN=
+
+En sentido contrario a =STDOUT=, podemos hacer que un comando ejecute
+un archivo ya creado:
+
+#+BEGIN_EXAMPLE
+comando < archivo
+#+END_EXAMPLE
+
+** Redirección =STDOUT= a un comando
+Para redirigir un comando con otro.: , entubar un comando con otro
+=comando1 | comando2 | comando3=
+
+* Comodines
+Los comodines permiten usar valores conocidos con valores
+comodín.
+
+Hay tres operadores:
+- =*=, para cualquier número de caracteres
+- =?=, para un carácter
+- =[x-y]=, para un rango
+
+** =*=
+
+Podemos listar todos los =csv= con el comodín =*=, ya que puede haber
+archivos con un carácter o varios.
+
+#+BEGIN_SRC sh :output org
+ls *.csv
+
+#+END_SRC
+
+#+RESULTS:
+| black_corrupcion.csv      |
+| black-is-black_backup.csv |
+| black-is-black.csv        |
+
+** =?=
+
+El comodín =?= sirve para solo un carácter, cualesquiera. Por ejemplo,
+si tuviéramos archivos que solo difieren en un carácter, podemos
+listar ambos.
+
+Imaginemos que tenemos archivos =1.pdf=, =2.pdf=, =3.pdf=,
+etc. Podríamos listarlos con el comodín =?=:
+
+#+BEGIN_EXAMPLE
+ls ?.pdf
+#+END_EXAMPLE
+
+** =[]=
+
+El comodín corchetes cuadrados o =[]= permite buscar rangos de números
+o letras.
+
+si queremos buscar en el =csv= tanto =CLESA= como =BLESA=, podemos
+escribir:
+
+#+BEGIN_SRC sh :output org
+grep [B-C]LESA black-is-black.csv | wc -l
+
+#+END_SRC
+
+#+RESULTS:
+: 1650
+
+* Procesos
+- =top=, sirve para ver qué procesos consumen más.
+- =ps [comando]= informa de los procesos de ese comando.
+ - =ps -f=, lista completa
+ - =ps -e=, muestra todos los procesos
+ - =ps aux | grep [comando]=, muestra los procesos de ese comando
+- =comando &=, corre proceso por detrás.
+- =jobs=, muestra procesos que corren por detrás
+- =kill señal numero-proceso=, manda la señal determinada a ese proceso
+- =killall comando=, mata todos los procesos de ese comando
+
+* Permisos
+- Los archivos/directorios pertenecen al usuario, del grupo y de otros
+- Las opciones de cada cual son lectura =r= /read/, escritura =w= /write/ y ejecución =x= /execute/
+- =u=, por /user/, usuario
+- =g=, por /group/, grupo
+- =o=, por /others/, otros
+- =a=, por /all/, todos
+- =chmod [opciones] [modo] [destino]=, /change mode/, cambia permisos.
+- =R=, afecta recursivamente.
+- Por ejemplo:
+#+BEGIN_SRC 
+chmod +rx
+
+#+END_SRC
+Cambia los permisos a lectura y escritura para todos.
+#+BEGIN_SRC 
+chmod g-w
+
+#+END_SRC
+Quita los permisos de escritura al grupo
+#+BEGIN_SRC 
+chmod 777
+
+#+END_SRC
+Cambia los permisos a lectura, escritura y ejecución para todxs.
+
+* Configuración de la terminal
+En la propia terminal tienes opciones de perfiles de color que puedes usar o puedes configurar algunos propios.
+** Variables de entorno
+Especifica las variables que se exportan a todos los procesos que son reproducidos por el shell.
+
+Se utiliza el comando =export= para exportar una variable:
+
+#+BEGIN_SRC sh
+export VARIABLE=value
+
+#+END_SRC
+
+Los valores de las variables de entorno se pueden visualizar con el comando =env=:
+
+#+BEGIN_SRC 
+env
+
+#+END_SRC
+
+** Aspecto de bash
+Si quieres cambiar el aspecto del bash y que no aparezca todo el chorro de carpetas en las que te encuentras y que convierte tu línea en algo difícil de utilizar, cámbialo:
+
+#+BEGIN_SRC sh
+#PS1='[\u@\h \W]\$ '  # Default
+PS1='\[\e[1;31m\][\u@\h \W]\$\[\e[0m\] '
+
+#+END_SRC
+
+Ahí elegimos, en el primer subcorchete, el color (ver la [[https://wiki.archlinux.org/index.php/Color_Bash_Prompt#List_of_colors_for_prompt_and_Bash][lista de colores completa]]), como por ejemplo =\e[1;31m=, color rojo y en negrita o =bldred=.
+
+El primer número se refiere a que sea texto normal, en cursiva, en negrita o subrayado.
+
+- 1, para que aparezca en negrita
+- 2, aparece normal
+- 3, aparece en cursiva
+- 4, para que aparezca subrayado
+
+Si queremos probarlo en la terminal, podemos utilizar el comando =echo=:
+
+#+BEGIN_SRC sh
+echo -e "${txtblu}test"
+
+#+END_SRC
+*** Cómo escapar caracteres en /prompt/
+
+Se puede ver el [[https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Prompt_escapes][listado de caracteres que escapan]].
+
+En este caso, en el segundo subcorchete definimos:
+
+- Con =\u=, que aparecerá el nombre del usuarix.
+- Con =@= que aparecerá una arroba
+- Con =\h= que aparecerá el nombre del host.
+- =\W= indica que se pondrá el directorio de trabajo relativo o /current relative path/, si no estás en =~/=. Si quisiéramos la ruta absoluta emplearíamos =\w=
+
+** Comandos y ayuda
+Los comandos tienen un nombre y opciones.
+
+Probablemente tengamos activada en la terminal la opción autocompletado, que podemos ver con estas líneas o parecidas en el archivo =.bashrc=:
+
+#+BEGIN_EXAMPLE
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+#+END_EXAMPLE
+
+Por tanto, podríamos pulsar dos veces el tabulador cuando empecemos a escribir un comando y la terminal autocompletará.
+
+Si queremos saber qué hace un comando, hay tres opciones, dos comandos
+que aportan información sobre los otros comandos y una opción de cada
+comando: =whatis=, =--help= y =man=.
+
+*** Whatis
+
+=whatis= muestra un par de líneas sobre el comando, de la información
+que aparece en el manual. Por ejemplo, si queremos saber qué hace el
+comando =wc=, haremos =whatis wc=:
+
+#+BEGIN_SRC sh
+whatis wc
+
+#+END_SRC
+
+La ayuda suele estar en inglés.
+
+*** Help
+
+Cualquier comando con la opción =--help= muestra una versión reducida del manual:
+
+#+BEGIN_SRC sh
+wc --help
+
+#+END_SRC
+
+*** Man
+
+El comando =man= con el nombre del comando del que se quiere saber
+como argumento nos abre el paginador del manual del comando,
+normalmente el comando =more=.
+
+Para avanzar en el paginador, hay que darle a la barra espaciadora y
+para salir del paginador sin llegar al final, hay que pulsar la tecla
+=q=.
+
+#+BEGIN_SRC sh
+man wc
+
+#+END_SRC
+
+** Algunas utilidades
+*** Interrumpir un comando
+Para interrrumpir el curso de un comando, se puede pulsar a la vez las
+teclas de =Ctrl= y =c=.
+#+BEGIN_EXAMPLE
+Ctrl + c
+#+END_EXAMPLE
+
+#+BEGIN_QUOTE
+Para que esto no suponga un lío, lo habitual es presionar primero la
+letra =Ctrl= y, sin soltarla, pulsar =C= una vez, luego soltar =Ctrl=.
+
+#+END_QUOTE
+*** Limpiar la línea
+Para limpiar la línea con algo que hemos escrito y podríamos borrar
+con la tecla de =Backspace=, podríamos pulsar la combinación de teclas
+=Ctrl= + =u=.
+
+#+BEGIN_EXAMPLE
+Ctrl + u
+#+END_EXAMPLE
+*** Salir de la terminal
+Se puede salir de la sesión con el comando =exit= o con la combinación
+de teclas =Ctrl= más =d=.
+
+*** Screen
+Con el comando =screen= podemos abrir una terminal virtual dentro de
+la sesión, de tal forma que podemos ejecutar comandos en segundo plan
+o, como por ejemplo un =ping=, una descarga de un fichero con =curl= o
+cualquier otra orden o conjunto de órdenes. 
+
+Para lanzarlo, escribimos =screen= y entonces pide que continuemos con
+=space= o salgamos con =return=. 
+
+Una vez que hemos continuado con =space=, podemos lanzar el comando
+que queramos tener en segundo plano, como por ejemplo, =ping=. Para
+dejarlo en segundo plano, se teclea =Ctrl= + =a= + =d=.
+
+#+BEGIN_EXAMPLE
+Ctrl + a + d
+#+END_EXAMPLE
+
+Si queremos saber los comandos que tenemos en segundo plano, se pueden ver con =screen -ls=.
+
+Si solo tenemos un screen lanzado, podremos volver con =screen -r=, pero si tenemos varios, que se mostrarán con =screen -ls=, podremos volver al que nos interese con =screen -r= más el número que nos aparece en el listado.
+
+Para cerrar la terminal virtual se utiliza también el comando =exit=.
+
+** Aliases
+Se pueden hacer alias de los comandos e incluirlos en =.bashrc=. Por ejemplo:
+
+Un alias de =ls= para que siempre que lo invoquemos haga =ls -aF --color=:
+
+#+BEGIN_SRC sh
+alias ls='ls -aF --color=always'
+
+#+END_SRC
+
+O un comando nuevo, por ejemplo =ll=, que lanza =ls -l=:
+
+#+BEGIN_SRC sh
+alias ll='ls -l'
+
+#+END_SRC
+
+Podemos renombrar un comando, como por ejemplo que =grep= sea =search=:
+
+#+BEGIN_SRC sh
+alias search=grep
+
+#+END_SRC
+
+O que al escribir =..= subamos un directorio con =cd ../=:
+
+#+BEGIN_SRC sh
+alias ..='cd ../'
+
+#+END_SRC
+* Utilidades
+** man
+Para saber sobre cualquier comando, por ejemplo sobre =mkdir=,
+utilizamos el comando =man=.
+#+BEGIN_SRC sh
+man mkdir
+#+END_SRC
+** history
+=history= muestra los comandos usados.
+ - =history -c= limpia la historia
+ - =history |grep [comando]=, muestra la historia de ese comando
+
+** time
+=time [comando]=, muestra el tiempo de ejecución del comando
+** diff
+=diff= compara archivos línea por línea.
+* Explorador de archivos
+** ls
+Lista los archivos del punto en el que nos encontramos. Viene del
+inglés /list/. Si lo lanzamos sin argumentos, obtendremos un listado
+de los archivos y directorios que contiene ese directorio:
+
+#+BEGIN_SRC sh
+ls
+
+#+END_SRC
+
+=ls [opciones]= lista los archivos del punto en el que nos encontramos.
+- =-a=, lista todos los archivos.
+- =-l=, lista en formato largo
+Para emplear argumentos, utilizaremos la estructura:
+
+#+BEGIN_SRC sh
+ls -a
+
+#+END_SRC
+
+Si queremos saber la información de cada archivo y directorio, lo
+haremos con la opción =-l=:
+
+#+BEGIN_SRC sh
+ls -l
+
+#+END_SRC
+
+** pwd
+
+=pwd= es el acrónimo de /print working directory/ o /muestra por
+pantalla el directorio de trabajo actual/. Es decir, imprime la ruta
+absoluta del sistema donde nos encontramos. 
+
+#+BEGIN_SRC sh
+pwd
+#+END_SRC
+
+** mkdir
+=mkdir [opciones] [nombre-directorio]=, /make directory/, crea un directorio
+- =-p=, make parents
+
+** cd
+Sirve para cambiar de directorio. Viene de las iniciales del inglés
+/change directory/.
+
+Si escribimos solo =cd=, vamos a nuestro espacio /home/ definido en la
+variable de entorno =HOME=:
+
+#+BEGIN_SRC sh
+env |grep HOME
+
+#+END_SRC
+
+Por tanto, iremos a =/home/flow=
+
+Para cambiar de directorio, podemos elegir la ruta absoluta o la relativa.
+
+#+BEGIN_EXAMPLE
+cd [ruta]
+#+END_EXAMPLE
+
+- =cd=, vamos a la home del usuario
+- =cd .=, vamos al directorio en el que estamos.
+- =cd ..=, vamos al directorio superior
+- =cd ~=, vamos al directorio home del usuario.
+- =cd -=, vamos al directorio donde estábamos antes.
+
+Con esos atajos también podemos construir rutas, por ejemplo, con =cd
+~/Documentos= vamos al directorio Documentos del usuario con el que
+estamos.
+
+=cd [ruta]=, /change directory/, cambia al directorio elegido. Podemos escribir la ruta absoluta o bien con atajos:
+- =cd=, vamos a la home del usuario
+- =cd .=, vamos al directorio en el que estamos.
+- =cd ..=, vamos al directorio superior
+- =cd ~=, vamos al directorio home del usuario.
+Con esos atajos también podemos construir rutas, por ejemplo, con =cd ~/Documentos= vamos al directorio Documentos del usuario con el que estamos.
+** touch
+=touch [archivo]=, crea archivo vacío
+** cp
+=cp [opciones] [origen] [destino]=
+- =cp -r= copia los directorios recursivamente
+** mv
+=mv [origen] [destino]=
+
+* wc
+
+Responde a /word count/, contar palabras.
+
+El esquema de uso sería:
+#+BEGIN_SRC 
+wc [opciones] archivo
+
+#+END_SRC
+
+Algunas opciones son:
+- =-l=, cuenta líneas
+- =-c=, cuenta bytes
+- =-m=, cuenta carácteres
+- =-w=, cuenta palabras
+
+** Ejemplo
+
+#+BEGIN_SRC sh
+wc rera_aragon.csv
+
+#+END_SRC
+
+Lo cual nos da las líneas, palabras y bytes que tiene.
+
+** Contar líneas
+Si queremos contar solo las líneas, lo haremos con la opción =-l=:
+
+#+BEGIN_SRC sh
+wc -l rera_aragon.csv
+
+#+END_SRC
+
+** Saber el tamaño (contar los bytes)
+
+#+BEGIN_SRC sh
+wc -c rera_aragon.csv
+
+#+END_SRC
+
+** Contar las palabras
+
+#+BEGIN_SRC sh
+wc -w rera_aragon.csv
+
+#+END_SRC
+
+** Contar número de caracteres
+
+
+#+BEGIN_SRC sh
+wc -m rera_aragon.csv
+
+#+END_SRC
+
+* grep
+Busca cadenas de texto en archivos.
+
+Por ejemplo, si queremos buscar =BLESA=, lo haremos con
+#+BEGIN_SRC sh
+grep "BLESA" black-is-black.csv
+#+END_SRC
+
+** Contar los resultados de la búsqueda con grep
+Para contar esos resultados, le añadimos la opción =-c=
+
+#+BEGIN_SRC sh
+grep -c "BLESA" black-is-black.csv
+#+END_SRC
+
+** Número de línea
+Si queremos que salga el número de línea donde aparece la expresión
+buscada, podemos hacerlo con la opción =-n=:
+
+#+BEGIN_SRC sh
+grep -n "BLESA" black-is-black.csv
+#+END_SRC
+
+** Opciones de búsqueda con OR
+
+Para dar opciones de búsqueda, operador lógico =OR=, caben varias
+opciones a utilizar:
+
+- El operador lógico =\|=
+- Utilizar la combinación =|= pero con la opción =-E=
+- =egrep=
+- =grep= con =-e= y =-e=
+
+*** OR con \|
+
+#+BEGIN_SRC sh
+grep "BLESA\|MORAL" black-is-black.csv
+#+END_SRC
+
+Y para contarlo, lo mismo que antes:
+
+#+BEGIN_SRC sh
+grep -c "BLESA\|MORAL" black-is-black.csv
+#+END_SRC
+
+*** OR con | y -E
+#+BEGIN_SRC sh
+grep -E "BLESA|MORAL" black-is-black.csv
+#+END_SRC
+Y para contarlo, lo mismo con la opción =-c=:
+#+BEGIN_SRC sh
+grep -Ec "BLESA|MORAL" black-is-black.csv
+#+END_SRC
+
+*** egrep
+
+=egrep= es lo mismo que =grep -E=:
+
+#+BEGIN_SRC sh
+egrep "BLESA|MORAL" black-is-black.csv
+
+#+END_SRC
+
+Y para contarlo, lo mismo con la opción =-c=:
+#+BEGIN_SRC sh
+egrep -c "BLESA|MORAL" black-is-black.csv
+
+#+END_SRC
+
+*** grep -e -e
+#+BEGIN_SRC sh
+grep -e "BLESA" -e "MORAL" black-is-black.csv
+
+#+END_SRC
+
+Igualmente, si quisiéramos contarlo, añadimos la opción =-c=:
+
+#+BEGIN_SRC sh
+grep -ce "BLESA" -e "MORAL" black-is-black.csv
+
+#+END_SRC
+
+** grep AND
+
+Aunque no hay operador =AND= en =grep=, podemos hacerlo de varias
+maneras:
+
+- Con la opción =-E= y separando las cadenas con =.*=:
+- Encadenando =grep=
+
+*** grep AND -E .*
+
+#+BEGIN_SRC sh
+grep -E "BLESA.*TABACO" black-is-black.csv
+
+#+END_SRC
+Y nos dirá si Miguel Blesa ha comprado TABACO con la tarjeta black.
+
+*** grep AND -E |
+#+BEGIN_SRC sh
+grep -E "BLESA" black-is-black.csv | grep -E "TABACO"
+
+#+END_SRC
+
+** grep NOT
+Con el uso de la opción =-v= se pueden simular condiciones =NOT=. La
+opción =-v= es para búsquedas inversas, es decir, busca todas las
+líneas excepto las que cumplan este patrón. Por ejemplo:
+
+#+BEGIN_SRC sh
+grep -vE "CARGO|COMPRA|REINTEGRO|DISPOSICION|BONIFICACION|CUOTA|FACTURACIÓN|ANTICIPO|IMPOSICION|CAJEROS|Facturación|Importes|CARGA|ANULACION" black-is-black.csv
+
+#+END_SRC
+
+
+* find
+=find [ruta] [opciones] [expresión]=
+- =-name=, busca por nombre
+- =-size=, busca por tamaño.
+- =iname=, busca en modo sensitivo.
+
+Buscas archivos o directorios desde la línea de comandos. Puedes
+buscar filtrando por:
+- Permisos
+- Propiedad
+- Fecha/hora de modificación
+- Tamaño
+** Solo find
+Si solo lanzamos =find=, nos devolverá los archivos, directorios y
+subdirectorios por debajo del lugar donde nos encontramos.
+
+Miremos primero dónde nos encontramos, volvamos a =pwd=:
+
+#+BEGIN_SRC sh
+pwd
+
+#+END_SRC
+
+*** Dónde nos encontramos
+
+Según el sistema operativo que utilicemos, esta orden nos devolverá
+rutas distintas:
+
+- GNU/Linux: /home/usuarix/proyectos/operaciones-logicas-datos
+- MacOSX: 
+- [[http://adrianvergarainformatica.esy.es/estructura-de-directorios-en-windows/][Windows]]: c:\Users\Mengana\Documents\operaciones-logicas-datos 
+
+*** find sobre directorio
+
+En ese caso estamos en
+=/home/flow/proyectos/operaciones-logicas-datos=, vamos a ver qué
+contiene este directorio:
+
+#+BEGIN_SRC sh
+find
+
+#+END_SRC
+
+#+RESULTS:
+| 0                           |
+| ./.Readme.org.~242df0ee     |
+| ./README.md                 |
+| ./Readme.org                |
+| ./.#Readme.org              |
+| ./suma.txt                  |
+| ./black_corrupcion.csv      |
+| ./black-is-black.csv        |
+| ./black-is-black_backup.csv |
+| ./#Readme.org#              |
+| ./Readme.org~               |
+| ./errores.txt               |
+
+*** Otras formas de find sobre directorio
+
+Se puede hacer =find= también de dos formas:
+
+- =find .=
+- =find . -print=.
+
+** find con ruta, filtro y término
+
+Pero normalmente lo utilizaremos siguiendo esta estructura:
+
+#+BEGIN_EXAMPLE
+find ruta filtro-de-búsqueda término-de-búsqueda
+#+END_EXAMPLE
+
+** otra ruta
+Podemos poner otra ruta:
+
+#+BEGIN_SRC shell :results output
+find ~/docs/softwarelibre/
+
+#+END_SRC
+
+#+BEGIN_QUOTE
+Atención: si no ponemos la opción =:results algo= y superamos las 999
+líneas, no obtendremos la salida de lo ejecutado.
+#+END_QUOTE
+
+** ejemplo find Readme.org
+Vamos a buscar ahora todos los archivos =Readme.org= por debajo de un
+directorio con la opción =-name= y voy a entubar la salida con a =wc -l= 
+
+#+BEGIN_SRC sh :results output raw
+find ~/ownCloud/proyectos/ -name Readme.org | wc -l
+#+END_SRC
+
+#+RESULTS:
+74
+
+** ejemplo find comodines
+Y también podemos incluir /comodines/. Por ejemplo, si quisiéramos todos los
+archivos =*.org=, no solo los que se llaman =Readme.org=:
+
+#+BEGIN_SRC sh :results output raw replace
+find ~/ownCloud/proyectos -name *.org | wc -l
+
+#+END_SRC
+
+#+RESULTS:
+74
+74
+13
+
+** find regexp en archivo
+Y si no queremos todos los archivos sino alguno en concreto, por
+ejemplo, que contuviera /bash/:
+
+#+BEGIN_SRC sh :results html
+find ~/ownCloud/docs/softwarelibre -name *bash*.org
+
+#+END_SRC
+
+** find tamaño de archivos
+O tamaños de archivos:
+
+#+BEGIN_SRC shell :results html
+find . -size +1M
+
+#+END_SRC
+
+** find tamaño de directorios
+O de directorios
+
+#+BEGIN_SRC shell :results html
+find ~/ -folder +300M
+#+END_SRC
+
+** find tipo de archivo
+O tipo de archivo:
+
+#+BEGIN_SRC shell :results html
+find . -type f *.org
+#+END_SRC
+
+** find encontrar archivos y borrarlos
+O encontrar archivos más antiguos que un año y borrarlos:
+#+BEGIN_EXAMPLE
+find .cache/ -type f -atime +365 -exec rm \;
+#+END_EXAMPLE
+
+** find encontrar y ordenar
+Encontrar y ordenar
+
+#+BEGIN_SRC shell :results html
+find ~/Descargas/ -size +30M | sort -hr
+#+END_SRC
+
+** find script bash
+Y programar:
+
+#+BEGIN_EXAMPLE
+find ./ -name "*.png" | sort | while read file; do tesseract $file "`basename $file" | sed 's/\.[[:alnum:]]*$//'`.txt -l spa -psm 3; done
+#+END_EXAMPLE
+
+Donde:
+- Encontramos los archivos del tipo =png= sobre la carpeta elegida
+- Los ordenamos con =sort=
+- Empezamos bucle con =while=
+- Ejecutamos =tesseract= (herramienta OCR) sobre cada archivo =$file=
+- Cambiamos el nombre y el tipo a =txt=.
+
+* head
+
+El comando =head= muestra, por defecto, las diez primeras líneas de un archivo.
+
+#+BEGIN_SRC shell :results html
+head rera_aragon.csv
+
+#+END_SRC
+
+** head con otro número de líneas
+Si queremos un número de líneas distintas, tan solo tenemos que
+ponerlo como argumento del comando. Por ejemplo, si solo queremos 4 líneas:
+
+#+BEGIN_SRC sh
+head -4 rera_aragon.csv
+#+END_SRC
+
+* tail
+
+Si =head= nos mostraba las diez primeras líneas de un archivo, el
+comando =tail= muestra las 10 últimas líneas de un archivo.
+
+ #+BEGIN_SRC shell :results html
+tail rera_aragon.csv
+#+END_SRC
+
+** tail modificar nº%% líneas
+Y también podemos modificar el número de líneas que salen
+especificándolo como argumento. Por ejemplo, si queremos las últimas
+cinco líneas:
+
+#+BEGIN_SRC shell :results html
+tail -5 rera_aragon.csv
+
+#+END_SRC
+
+#+BEGIN_SRC shell :results html
+tail -n2 rera_aragon.csv
+
+#+END_SRC
+
+* head y tail
+
+Vistos estos dos comandos, =head= y =tail=, se pueden combinar para
+que la salida de uno sirva como entrada de otro, y de esta manera,
+saber qué contiene una línea en concreto.
+
+La concatenación de comandos lo hacemos con la tubería =|=. La tubería
+o /pipe/ sirve para pasar la ejecución de un comando a otro.
+
+** Línea nº 30
+Si quisiéramos saber el contenido de la línea número treinta del
+fichero, mostraríamos las 30 primeras líneas con =head -30= y lo
+concatenaríamos con =tail -1= para saber la última de esas 30 primeras
+líneas:
+
+#+BEGIN_SRC sh :results html
+head -30 rera_aragon.csv | tail -1
+
+#+END_SRC
+
+** concatenación de tres comandos
+Otro ejemplo, concatenando tres comandos: =head=, =tail= y =cut=:
+
+#+BEGIN_SRC sh :results html
+head -n20 rera_aragon.csv | tail -n5 | cut -c1-8
+
+#+END_SRC
+
+* Comandos múltiples
+- Podemos ejecutar un comando
+- Pero también un comando y después otro
+- O un comando y si tiene éxito entonces el segundo.
+- Al reves, un comando si el primero no tuvo éxito.
+
+Ejemplos
+** =;=
+Si queremos ejecutar un comando y luego otro, independientemente de si
+el primero da error, utilizamos el operador =;=
+
+*** Ejemplo de éxito
+
+En este ejemplo, la primera orden ofrece resultados, y por eso el
+=echo= tiene sentido:
+#+BEGIN_SRC sh :results html
+grep BLESA black-is-black.csv | wc -l ; echo "líneas con la palabra BLESA...\n¡Qué pasada!"
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_EXPORT html
+1650
+líneas con la palabra BLESA...
+¡Qué pasada!
+#+END_EXPORT
+
+*** Ejemplo fallido
+En este ejemplo, no devuelve resultados porque no hay un archivo
+llamado black. Sin embargo, aparece el mensaje a continuación como en
+el primer caso, que resulta un poco incongruente.
+#+BEGIN_SRC sh :results html
+grep CLESA black; echo "líneas con la palabra CLESA...\n¡Qué pasada!"
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_EXPORT html
+líneas con la palabra CLESA...
+¡Qué pasada!
+#+END_EXPORT
+
+
+** =&&=
+
+Si queremos ejecutar el comando, y que siga con el segundo sólo si el
+primero devuelve algo, utilizamos el operador /&&/:
+
+#+BEGIN_SRC sh :results org
+grep CLESA black && echo "líneas con la palabra CLESA...\n¡Qué pasada!"
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC org
+#+END_SRC
+
+** =||=
+
+Al contrario, si queremos ejecutar un comando después de otro pero
+queremos que se ejecute el segundo solo si el primero dio error,
+usaremos el operador =||=:
+
+#+BEGIN_SRC sh :results org
+grep CLESA black-is-black || echo "No hay ningún chorizo CLESA"
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC org
+No hay ningún chorizo CLESA
+#+END_SRC
+
+* Sobre los datos
+** cut
+Para filtrar columnas
+** sed
+Sustituir una palabra por otra, por ejemplo:
+
+#+BEGIN_SRC sh
+sed 's/BLESA/CORRUPCION/' black-is-black.csv > black_corrupcion.csv
+#+END_SRC
+
+Y comprobamos si hay alguna línea con =BLESA= en el archivo =black_corrupcion.csv=:
+
+#+BEGIN_SRC sh
+grep -c "BLESA" black-corrupcion.csv
+
+#+END_SRC
+
+** diff
+=diff= Mostrar diferencias entre ficheros:
+diff Black.csv Black_corrupcion.csv
+Comparar dos archivos. Si son iguales, no devuelve nada, si difieren muestra el byte y el número de línea de la primera diferencia.
+cmp Black.csv Black_corrupcion.csv
+Para reemplazar
+** split
+Para dividir en varios archivos
+** sort
+para ordenar
+
+* Referencias bibliográficas                                             :OK:
+- Find: http://www.binarytides.com/linux-find-command-examples/
+- Aristarain, Manuel & Tigas, Mike & Merril, Jeremy B. (2014) /Scraping PDFs with Tabula/. URL: https://s3.amazonaws.com/media.miketigas.com/files/20140627/20140627-tabula-IRE2014-withnotes.pdf
+- Crucianelli, Sandra. (2013) /Herramientas digitales para periodistas/. Centro Knight para el Periodismo en las Américas de la Universidad de la Universidad de Texas. URL: https://knightcenter.utexas.edu/books/HDPP.pdf
+- García Santiago, Lola. (2003) /Extraer y visualizar información en Internet: el Web Mining/. Gijón: Ediciones Trea
+- Gray, Jonathan & Bounegru, Liliana & Chambers, Lucy. (2012) /Data Journalism Handbook/. European Journalism Centre y Open Knowledge Foundation. URL: http://datajournalismhandbook.org/
+- Kayser-Brill, Nicolas. (2014) /Data wants to be free! (and clean)/. Medialab-Prado. URL: http://bit.ly/free-clean
+- Méndez Rodriguez, Eva Mª. (2002) /Metadatos y Recuperación de información: estándares, problemas y aplicabilidad en bibliotecas digitales/. Gijón: Trea
+- Nguyen, Dan. (2010) /Chapter 3: Turning PDFs to Text/. Propublica, Journalism in the Public Interest. URL: https://www.propublica.org/nerds/item/turning-pdfs-to-text-doc-dollars-guide
+- Nguyen, Dan. (2010) /Chapter 5: Getting Text Out of an Image-Only PDF/. ProPublica, Journalism in the Public Interest. URL: https://www.propublica.org/nerds/item/image-to-text-ocr-and-imagemagick
+- Schoolofdata, (2014) /Obteniendo datos de los PDF/. Web: School of Data. URL: http://es.schoolofdata.org/obteniendo-datos-de-los-pdfs/
+- Cómo utilizar /Google OCR/,  https://www.youtube.com/watch?v=DPJJON26Do4
+- Introducción al scraping de /PDF/, http://www.irekia.euskadi.eus/es/news/11703-introduccion-google-refine-curso-periodismo-datos

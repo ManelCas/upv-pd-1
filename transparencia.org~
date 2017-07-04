@@ -1,0 +1,157 @@
+#+BLOG: blog.datalab.es
+#+CATEGORY: 
+#+TAGS: 
+#+DESCRIPTION: 
+#+AUTHOR: Adolfo Antón Bravo
+#+EMAIL: adolfo@medialab-prado.es
+#+TITLE: 
+#+DATE: [2016-12-16 mié 16:00]
+#+OPTIONS:  num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+TOC: headlines 2
+#+LATEX_HEADER: \usepackage[english]{babel}
+#+LATEX_HEADER: \addto\captionsenglish{\renewcommand{\contentsname}{{\'I}ndice}}
+#+LATEX_HEADER: \renewcommand{\contentsname}{Índice}
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:nil reveal_control:t
+#+OPTIONS: reveal_mathjax:t reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
+#+OPTIONS: reveal_width:1200 reveal_height:800
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: sky
+#+REVEAL_HLEVEL: 2
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Herramientas de Scraping de PDF y Web.">
+#+REVEAL_POSTAMBLE: <p> Creado por adolflow. </p>
+#+REVEAL_PLUGINS: (highlight notes)
+#+REVEAL_EXTRA_CSS: file:///home/flow/Documentos/software/reveal.js/css/reveal.css
+#+REVEAL_ROOT: file:///home/flow/Documentos/software/reveal.js/
+#+LATEX_HEADER: \maketitle
+#+LATEX_HEADER: \tableofcontents
+
+* Bivoslab
+- URL: http://bivoslab.biocore.es/
+http://medialab-prado.es/article/convocatoria-comunidad-bivoslab-2016-2017
+Este nuevo ciclo (primer semestre de 2017) se enfoca en el eje “Metabolismo y procesamiento orgánico“. La actividad prevista pasa por la formación de la Comunidad en conceptos, nociones y herramientas para enfrentarnos a los retos de la transformación material (energética y de información) que se da en todos los procesos de la vida; conocimientos que llevaremos al diseño y desarrollo de performances y otros productos culturales abiertos.
+
+* Cajamar Data Lab
+  :PROPERTIES:
+  :URL:      http://www.cajamardatalab.com/
+  :END:
+
+* Cesar
+
+* DataJLab
+  :PROPERTIES:
+  :URL:      http://datajlab.nl/
+  :END:
+
+* Device Lab
+  :PROPERTIES:
+  :URL:      https://devicelab.knightlab.com/
+  :Universidad: Northwestern University
+  :END:
+
+* Disrupt MediaLab
+  :PROPERTIES:
+  :Twitter:  dmedialab
+  :URL:      http://www.disruptmedialab.com/
+  :Blog:     http://www.disruptmedialab.com/dml-blog-es/
+  :Lang:     en
+  :END:
+
+* Etalab
+  :PROPERTIES:
+  :Twitter:  https://twitter.com/Etalab
+  :END:
+
+* FameLab
+  :PROPERTIES:
+  :DESCRIPTION: FameLab is a global competition to find and support the world's most talented new science, technology, engineering and maths (STEM) communicators.
+  :Twitter:  https://twitter.com/FameLab
+  :URL:      http://www.cheltenhamfestivals.com/about/famelab/
+  :Ciudad:   Londres
+  :País:     Reino Unido
+  :END:
+
+
+* Invisible Things Lab
+https://invisiblethingslab.com/itl/Welcome.html
+Invisible Things Lab focuses on cutting-edge research in computer system security. Invisible Things Lab focuses on cutting-edge research in computer system security. We are well known for our pioneering research in the areas of kernel security, virtualization security and system/firmware level security. Our work has been widely quoted by international press and the members of our team often speak at industry conferences around the world. The unique skills of our team allow us to analyze complex new technologies and point out design- and implementation-level security flaws and recommend how to fix them, before the "bad guys" can exploit them.
+
+* Knight Lab
+  :PROPERTIES:
+  :URL:      https://knightlab.northwestern.edu/
+  :Ciudad:   Chicago
+  :Ciudad+:  San Francisco
+  :Universidad: Northwestern University
+  :Twitter:  knightlab
+  :END:
+
+* LabDePeriodismo
+  :PROPERTIES:
+  :Twitter:  LabDePeriodismo
+  :Ciudad:   Madrid
+  :País:     España
+  :URL:      http://laboratoriodeperiodismo.org/
+  :DESCRIPTION: Laboratorio de Periodismo es una iniciativa de la Fundación Luca de Tena para tratar de cubrir las necesidades de los periodistas en España e Iberoamérica.
+  :END:
+  
+* Labverde
+- URL: http://www.labverde.com/
+LABVERDE is designed for artists and creators who are eager to reflect on nature and landscape. The program will promote an intensive experience in the Amazon rainforest aiming to explore the connection between science, art and the natural environment.
+
+* Localization Lab
+https://twitter.com/L10nLab
+http://www.localizationlab.org/
+Localization Lab provides localization services and support for Internet freedom tools: technology that addresses security, privacy, anonymity, whistleblowing, circumvention issues, including training materials to support these tools. 
+
+* Public Data Lab
+  :PROPERTIES:
+  :URL:      http://publicdatalab.org/
+  :DESCRIPTION: The Public Data Lab seeks to facilitate research, democratic engagement and public debate around the future of the data society.
+  :Twitter:  publicdatalab
+  :Github:   PublicDataLab
+  :END:
+
+* Radiolab
+  :PROPERTIES:
+  :Twitter:  https://twitter.com/Radiolab
+  :URL:      http://www.radiolab.org/
+  :DESCRIPTION: Radiolab is a show about curiosity from @WNYCStudios.
+  :Facebook: https://www.facebook.com/Radiolab/
+  :Ciudad:   New York City
+  :País:     EE.UU.
+  :END:
+
+
+* Tant-Lab
+  :PROPERTIES:
+  :Twitter:  TANTlab
+  :DESCRIPTION: Techno-Anthropology Lab at the University of Aalborg Copenhagen.
+  :Ciudad:   Copenhagen
+  :País:     Dinamarca
+  :END:
+* teamLAB
+  :PROPERTIES:
+  :Ciudad:   Tokio
+  :País:     Japón
+  :URL:      http://team-lab.net
+  :Facebook: https://t.co/tlOrSZRuHJ
+  :Instagram: https://t.co/IHeLfzdjLF
+  :Youtube:  https://t.co/zJDyLQsih7
+  :Twitter:  teamLab_net
+  :END:
+
+* TimeLab
+- URL: http://medialab-prado.es/article/timelab
+Laboratorio de prototipado y experimentación de diferentes ideas, herramientas e iniciativas que desde la innovación y la creatividad permitan dinamizar y optimizar la dimensión política, económica y social de los Bancos de Tiempo y de otras redes de intercambio no monetarias, prefigurando la creación de nuevas redes colaborativas de estas plataformas de intercambio con otras organizaciones o colectivos del entorno.
+
+Si quieres ponerte en contacto con este grupo escribe a timelabmadrid[arroba]adbdt.org
+* UCAM MediaLab
+  :PROPERTIES:
+  :Twitter:  UCAMMediaLab
+  :Ciudad:   Murcia
+  :País:     España
+  :Nacimiento: 2006-12
+  :URL:      http://laazotea.blogspot.com.es/
+  :END:
